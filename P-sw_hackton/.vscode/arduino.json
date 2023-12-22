@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:uno",
+    "sketch": "taka_file\\sketch_aug20a\\sketch_aug20a.ino",
+    "port": "COM3"
+}

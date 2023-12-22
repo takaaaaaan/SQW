@@ -1,0 +1,1724 @@
+{
+  "A-01": {
+    "move01": {
+      "COD": 1.11,
+      "DIN": 118.15,
+      "DIP": 17.49,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 44.61,
+      "Si_OH4": 307.81,
+      "TN": 287.71,
+      "TP": 36.14,
+      "area": "동중국해(제주도 아래)",
+      "chlorophyll": 2.76,
+      "direction": 69,
+      "dissolved_oxygen": 9.22,
+      "latitude": 29.1234,
+      "layer_name": "표층",
+      "longitude": 123.5817,
+      "pH": 8.11,
+      "salinity": 30.79,
+      "temperature": 17.23,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-02": {
+    "move01": {
+      "COD": 1.78,
+      "DIN": 51.89,
+      "DIP": 18.35,
+      "Grade": 0,
+      "SD": 1,
+      "SPM": 32.59,
+      "Si_OH4": 412.67,
+      "TN": 251.61,
+      "TP": 27.28,
+      "area": "동해 아래 1",
+      "chlorophyll": 1.29,
+      "direction": 153,
+      "dissolved_oxygen": 9.92,
+      "latitude": 39.9634,
+      "layer_name": "표층",
+      "longitude": 132.0674,
+      "pH": 8.1,
+      "salinity": 32.85,
+      "temperature": 15.29,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-03": {
+    "move01": {
+      "COD": 1.12,
+      "DIN": 236.99,
+      "DIP": 23.73,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 42.77,
+      "Si_OH4": 377.11,
+      "TN": 313.67,
+      "TP": 21.56,
+      "area": "동해 아래 2",
+      "chlorophyll": 3.67,
+      "direction": 47,
+      "dissolved_oxygen": 8.5,
+      "latitude": 40.6591,
+      "layer_name": "표층",
+      "longitude": 134.711,
+      "pH": 8.08,
+      "salinity": 32.65,
+      "temperature": 17.57,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-04": {
+    "move01": {
+      "COD": 1.78,
+      "DIN": 230.93,
+      "DIP": 4.91,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 36.04,
+      "Si_OH4": 249,
+      "TN": 252.01,
+      "TP": 30.71,
+      "area": "황해 1",
+      "chlorophyll": 0.88,
+      "direction": 248,
+      "dissolved_oxygen": 9.3,
+      "latitude": 35.7353,
+      "layer_name": "표층",
+      "longitude": 125.8263,
+      "pH": 8.22,
+      "salinity": 31.43,
+      "temperature": 16.43,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-05": {
+    "move01": {
+      "COD": 1.9,
+      "DIN": 216.91,
+      "DIP": 17.65,
+      "Grade": 0,
+      "SD": 4,
+      "SPM": 11.46,
+      "Si_OH4": 447.01,
+      "TN": 342.57,
+      "TP": 22.94,
+      "area": "황해 2",
+      "chlorophyll": 1.82,
+      "direction": 333,
+      "dissolved_oxygen": 8.11,
+      "latitude": 36.2923,
+      "layer_name": "표층",
+      "longitude": 126.2551,
+      "pH": 8.08,
+      "salinity": 32.75,
+      "temperature": 17.35,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-06": {
+    "move01": {
+      "COD": 1.38,
+      "DIN": 220.26,
+      "DIP": 14.35,
+      "Grade": 0,
+      "SD": 1,
+      "SPM": 26.3,
+      "Si_OH4": 380.58,
+      "TN": 329.68,
+      "TP": 19.81,
+      "area": "동해 위",
+      "chlorophyll": 0.63,
+      "direction": 80,
+      "dissolved_oxygen": 7.72,
+      "latitude": 41.6727,
+      "layer_name": "표층",
+      "longitude": 138.3143,
+      "pH": 8.21,
+      "salinity": 29.19,
+      "temperature": 14.83,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-07": {
+    "move01": {
+      "COD": 1.77,
+      "DIN": 34.5,
+      "DIP": 17.67,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 40.41,
+      "Si_OH4": 125.98,
+      "TN": 333.91,
+      "TP": 18.84,
+      "area": "황해 1",
+      "chlorophyll": 1.39,
+      "direction": 184,
+      "dissolved_oxygen": 8.12,
+      "latitude": 35.1756,
+      "layer_name": "표층",
+      "longitude": 121.8217,
+      "pH": 8.24,
+      "salinity": 29.21,
+      "temperature": 16.55,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-08": {
+    "move01": {
+      "COD": 1.11,
+      "DIN": 82.77,
+      "DIP": 5.06,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 6.96,
+      "Si_OH4": 133.09,
+      "TN": 308.58,
+      "TP": 33.56,
+      "area": "후쿠오카 한국",
+      "chlorophyll": 3.05,
+      "direction": 322,
+      "dissolved_oxygen": 8.41,
+      "latitude": 33.8398,
+      "layer_name": "표층",
+      "longitude": 129.3282,
+      "pH": 8.16,
+      "salinity": 31.83,
+      "temperature": 13.43,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-09": {
+    "move01": {
+      "COD": 1.11,
+      "DIN": 181.8,
+      "DIP": 10.73,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 21.55,
+      "Si_OH4": 427,
+      "TN": 384.96,
+      "TP": 24.03,
+      "area": "동해 위",
+      "chlorophyll": 0.88,
+      "direction": 245,
+      "dissolved_oxygen": 7.82,
+      "latitude": 42.2919,
+      "layer_name": "표층",
+      "longitude": 133.1439,
+      "pH": 8.23,
+      "salinity": 31.03,
+      "temperature": 15.98,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-10": {
+    "move01": {
+      "COD": 1.9,
+      "DIN": 110.52,
+      "DIP": 17.12,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 24.34,
+      "Si_OH4": 336.69,
+      "TN": 254.12,
+      "TP": 34.57,
+      "area": "황해 1",
+      "chlorophyll": 3.07,
+      "direction": 304,
+      "dissolved_oxygen": 7.72,
+      "latitude": 35.0161,
+      "layer_name": "표층",
+      "longitude": 123.7614,
+      "pH": 8.08,
+      "salinity": 33.81,
+      "temperature": 13.39,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-11": {
+    "move01": {
+      "COD": 1.3,
+      "DIN": 215.44,
+      "DIP": 15.29,
+      "Grade": 0,
+      "SD": 4,
+      "SPM": 44.72,
+      "Si_OH4": 134.53,
+      "TN": 156.16,
+      "TP": 24.62,
+      "area": "동해 아래 2",
+      "chlorophyll": 2.23,
+      "direction": 115,
+      "dissolved_oxygen": 9.06,
+      "latitude": 35.9886,
+      "layer_name": "표층",
+      "longitude": 133.8425,
+      "pH": 8.06,
+      "salinity": 29.63,
+      "temperature": 15.58,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-12": {
+    "move01": {
+      "COD": 1.39,
+      "DIN": 215.81,
+      "DIP": 17.73,
+      "Grade": 0,
+      "SD": 1,
+      "SPM": 6.83,
+      "Si_OH4": 376.7,
+      "TN": 161.6,
+      "TP": 23.54,
+      "area": "황해 2",
+      "chlorophyll": 0.8,
+      "direction": 129,
+      "dissolved_oxygen": 9.44,
+      "latitude": 35.9663,
+      "layer_name": "표층",
+      "longitude": 121.7266,
+      "pH": 8.16,
+      "salinity": 29.4,
+      "temperature": 18.23,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-13": {
+    "move01": {
+      "COD": 2.13,
+      "DIN": 149.61,
+      "DIP": 11.66,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 46.27,
+      "Si_OH4": 413.07,
+      "TN": 163.12,
+      "TP": 26.12,
+      "area": "동해 위",
+      "chlorophyll": 1.95,
+      "direction": 268,
+      "dissolved_oxygen": 7.72,
+      "latitude": 42.1096,
+      "layer_name": "표층",
+      "longitude": 131.475,
+      "pH": 8.19,
+      "salinity": 33.43,
+      "temperature": 14.37,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-14": {
+    "move01": {
+      "COD": 1.14,
+      "DIN": 85.14,
+      "DIP": 9.61,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 14.42,
+      "Si_OH4": 304.89,
+      "TN": 228.36,
+      "TP": 30.31,
+      "area": "동해 아래 1",
+      "chlorophyll": 1.5,
+      "direction": 230,
+      "dissolved_oxygen": 8.51,
+      "latitude": 38.7874,
+      "layer_name": "표층",
+      "longitude": 129.446,
+      "pH": 8.15,
+      "salinity": 33.36,
+      "temperature": 15.2,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-15": {
+    "move01": {
+      "COD": 1.31,
+      "DIN": 156.38,
+      "DIP": 17.32,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 28.38,
+      "Si_OH4": 113.52,
+      "TN": 220.7,
+      "TP": 34.19,
+      "area": "황해 2",
+      "chlorophyll": 1.44,
+      "direction": 334,
+      "dissolved_oxygen": 8.45,
+      "latitude": 36.4614,
+      "layer_name": "표층",
+      "longitude": 125.3609,
+      "pH": 8.15,
+      "salinity": 31.76,
+      "temperature": 18.22,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-16": {
+    "move01": {
+      "COD": 1.12,
+      "DIN": 125.69,
+      "DIP": 4.29,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 33.35,
+      "Si_OH4": 424.31,
+      "TN": 283.49,
+      "TP": 15.66,
+      "area": "황해 2",
+      "chlorophyll": 3.23,
+      "direction": 41,
+      "dissolved_oxygen": 9.4,
+      "latitude": 35.8493,
+      "layer_name": "표층",
+      "longitude": 123.0027,
+      "pH": 8.14,
+      "salinity": 32.97,
+      "temperature": 14.83,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-17": {
+    "move01": {
+      "COD": 1.74,
+      "DIN": 230.94,
+      "DIP": 5.63,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 15.49,
+      "Si_OH4": 299.9,
+      "TN": 277.53,
+      "TP": 17.98,
+      "area": "제주도 ",
+      "chlorophyll": 2.44,
+      "direction": 313,
+      "dissolved_oxygen": 7.74,
+      "latitude": 32.2897,
+      "layer_name": "표층",
+      "longitude": 124.0225,
+      "pH": 8.2,
+      "salinity": 29.35,
+      "temperature": 13.23,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-18": {
+    "move01": {
+      "COD": 2.09,
+      "DIN": 171.15,
+      "DIP": 10.18,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 44.23,
+      "Si_OH4": 184.9,
+      "TN": 344.28,
+      "TP": 38.99,
+      "area": "동해 위",
+      "chlorophyll": 2.57,
+      "direction": 71,
+      "dissolved_oxygen": 9.51,
+      "latitude": 42.468,
+      "layer_name": "표층",
+      "longitude": 133.0987,
+      "pH": 8.21,
+      "salinity": 29.86,
+      "temperature": 16.2,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-19": {
+    "move01": {
+      "COD": 2.17,
+      "DIN": 47.62,
+      "DIP": 7.03,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 33.18,
+      "Si_OH4": 443.3,
+      "TN": 249.83,
+      "TP": 34.19,
+      "area": "황해 2",
+      "chlorophyll": 0.56,
+      "direction": 68,
+      "dissolved_oxygen": 8.12,
+      "latitude": 36.6636,
+      "layer_name": "표층",
+      "longitude": 123.5852,
+      "pH": 8.24,
+      "salinity": 30.15,
+      "temperature": 13.49,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-20": {
+    "move01": {
+      "COD": 1.12,
+      "DIN": 235.13,
+      "DIP": 7.69,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 47.42,
+      "Si_OH4": 327.85,
+      "TN": 287.86,
+      "TP": 27.6,
+      "area": "동해 위",
+      "chlorophyll": 2.12,
+      "direction": 315,
+      "dissolved_oxygen": 9.24,
+      "latitude": 41.7519,
+      "layer_name": "표층",
+      "longitude": 139.279,
+      "pH": 8.08,
+      "salinity": 29.59,
+      "temperature": 16.91,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-21": {
+    "move01": {
+      "COD": 1.99,
+      "DIN": 162.52,
+      "DIP": 17.35,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 17.31,
+      "Si_OH4": 124.01,
+      "TN": 161.34,
+      "TP": 23.88,
+      "area": "동중국해(제주도 아래)",
+      "chlorophyll": 3.16,
+      "direction": 232,
+      "dissolved_oxygen": 9.95,
+      "latitude": 29.6395,
+      "layer_name": "표층",
+      "longitude": 124.9579,
+      "pH": 8.06,
+      "salinity": 33.27,
+      "temperature": 16.21,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-22": {
+    "move01": {
+      "COD": 1.44,
+      "DIN": 116.8,
+      "DIP": 8.76,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 8.32,
+      "Si_OH4": 330.15,
+      "TN": 371.19,
+      "TP": 38.79,
+      "area": "황해 2",
+      "chlorophyll": 3.18,
+      "direction": 258,
+      "dissolved_oxygen": 9.18,
+      "latitude": 36.0435,
+      "layer_name": "표층",
+      "longitude": 124.8548,
+      "pH": 8.22,
+      "salinity": 31.62,
+      "temperature": 13.72,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-23": {
+    "move01": {
+      "COD": 1.98,
+      "DIN": 66.22,
+      "DIP": 7.34,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 10.46,
+      "Si_OH4": 125.83,
+      "TN": 331.68,
+      "TP": 21.42,
+      "area": "동해 아래 2",
+      "chlorophyll": 3.58,
+      "direction": 190,
+      "dissolved_oxygen": 8.37,
+      "latitude": 35.5611,
+      "layer_name": "표층",
+      "longitude": 131.1498,
+      "pH": 8.13,
+      "salinity": 30.67,
+      "temperature": 17.98,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-24": {
+    "move01": {
+      "COD": 1.2,
+      "DIN": 79.35,
+      "DIP": 15.88,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 44.47,
+      "Si_OH4": 118.75,
+      "TN": 222.48,
+      "TP": 16.53,
+      "area": "황해 1",
+      "chlorophyll": 0.86,
+      "direction": 94,
+      "dissolved_oxygen": 9.97,
+      "latitude": 35.6344,
+      "layer_name": "표층",
+      "longitude": 120.8594,
+      "pH": 8.25,
+      "salinity": 29.37,
+      "temperature": 13.71,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-25": {
+    "move01": {
+      "COD": 1.73,
+      "DIN": 146.47,
+      "DIP": 20.02,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 7.75,
+      "Si_OH4": 206.68,
+      "TN": 199.01,
+      "TP": 18.65,
+      "area": "동중국해(제주도 아래)",
+      "chlorophyll": 1.39,
+      "direction": 177,
+      "dissolved_oxygen": 8.72,
+      "latitude": 30.0602,
+      "layer_name": "표층",
+      "longitude": 129.3156,
+      "pH": 8.08,
+      "salinity": 33.57,
+      "temperature": 14.71,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-26": {
+    "move01": {
+      "COD": 1.77,
+      "DIN": 92.13,
+      "DIP": 24.22,
+      "Grade": 0,
+      "SD": 1,
+      "SPM": 23.56,
+      "Si_OH4": 107.05,
+      "TN": 156.05,
+      "TP": 27.23,
+      "area": "동중국해(제주도 아래)",
+      "chlorophyll": 4.13,
+      "direction": 41,
+      "dissolved_oxygen": 7.78,
+      "latitude": 30.8285,
+      "layer_name": "표층",
+      "longitude": 123.9811,
+      "pH": 8.15,
+      "salinity": 29.9,
+      "temperature": 12.99,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-27": {
+    "move01": {
+      "COD": 2.19,
+      "DIN": 206.35,
+      "DIP": 11.02,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 48.58,
+      "Si_OH4": 334.54,
+      "TN": 231.31,
+      "TP": 19.43,
+      "area": "동해 아래 1",
+      "chlorophyll": 1.86,
+      "direction": 89,
+      "dissolved_oxygen": 9.51,
+      "latitude": 39.2136,
+      "layer_name": "표층",
+      "longitude": 135.3392,
+      "pH": 8.2,
+      "salinity": 31.37,
+      "temperature": 18.82,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-28": {
+    "move01": {
+      "COD": 1.62,
+      "DIN": 236.75,
+      "DIP": 16.64,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 11.46,
+      "Si_OH4": 137.48,
+      "TN": 125.05,
+      "TP": 21.92,
+      "area": "황해 2",
+      "chlorophyll": 2.76,
+      "direction": 308,
+      "dissolved_oxygen": 9.09,
+      "latitude": 35.9142,
+      "layer_name": "표층",
+      "longitude": 121.9039,
+      "pH": 8.18,
+      "salinity": 31.59,
+      "temperature": 16.03,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-29": {
+    "move01": {
+      "COD": 1.61,
+      "DIN": 95.77,
+      "DIP": 10.36,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 29.54,
+      "Si_OH4": 426.15,
+      "TN": 234.62,
+      "TP": 15.89,
+      "area": "황해 1",
+      "chlorophyll": 1.31,
+      "direction": 63,
+      "dissolved_oxygen": 8.63,
+      "latitude": 34.7061,
+      "layer_name": "표층",
+      "longitude": 122.7214,
+      "pH": 8.18,
+      "salinity": 30.81,
+      "temperature": 18.21,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-30": {
+    "move01": {
+      "COD": 1.76,
+      "DIN": 93.24,
+      "DIP": 12.8,
+      "Grade": 0,
+      "SD": 4,
+      "SPM": 6.47,
+      "Si_OH4": 406.1,
+      "TN": 327.85,
+      "TP": 21.87,
+      "area": "동해 위",
+      "chlorophyll": 2.66,
+      "direction": 37,
+      "dissolved_oxygen": 8.59,
+      "latitude": 42.3384,
+      "layer_name": "표층",
+      "longitude": 133.3722,
+      "pH": 8.15,
+      "salinity": 30.65,
+      "temperature": 17.78,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-31": {
+    "move01": {
+      "COD": 1.14,
+      "DIN": 43.06,
+      "DIP": 6.6,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 10.23,
+      "Si_OH4": 454.73,
+      "TN": 199.69,
+      "TP": 37.31,
+      "area": "황해 2",
+      "chlorophyll": 0.85,
+      "direction": 102,
+      "dissolved_oxygen": 9.79,
+      "latitude": 35.895,
+      "layer_name": "표층",
+      "longitude": 126.3589,
+      "pH": 8.16,
+      "salinity": 30.46,
+      "temperature": 14.44,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-32": {
+    "move01": {
+      "COD": 2.04,
+      "DIN": 133.57,
+      "DIP": 6.75,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 24.45,
+      "Si_OH4": 361.81,
+      "TN": 364.31,
+      "TP": 18.18,
+      "area": "동해 위",
+      "chlorophyll": 2.49,
+      "direction": 215,
+      "dissolved_oxygen": 9.94,
+      "latitude": 42.0874,
+      "layer_name": "표층",
+      "longitude": 130.4157,
+      "pH": 8.23,
+      "salinity": 31.28,
+      "temperature": 17.56,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-33": {
+    "move01": {
+      "COD": 1.73,
+      "DIN": 127.27,
+      "DIP": 22.9,
+      "Grade": 0,
+      "SD": 4,
+      "SPM": 7.24,
+      "Si_OH4": 183.08,
+      "TN": 301.81,
+      "TP": 17.62,
+      "area": "동해 아래 1",
+      "chlorophyll": 0.9,
+      "direction": 204,
+      "dissolved_oxygen": 8.06,
+      "latitude": 40.7271,
+      "layer_name": "표층",
+      "longitude": 137.501,
+      "pH": 8.2,
+      "salinity": 30.31,
+      "temperature": 13.11,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-34": {
+    "move01": {
+      "COD": 1.98,
+      "DIN": 69.49,
+      "DIP": 6.66,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 22.91,
+      "Si_OH4": 252.06,
+      "TN": 314.08,
+      "TP": 31.39,
+      "area": "제주도 ",
+      "chlorophyll": 3.23,
+      "direction": 14,
+      "dissolved_oxygen": 8.7,
+      "latitude": 31.848,
+      "layer_name": "표층",
+      "longitude": 126.6973,
+      "pH": 8.19,
+      "salinity": 31.08,
+      "temperature": 13.71,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-35": {
+    "move01": {
+      "COD": 1.44,
+      "DIN": 68.11,
+      "DIP": 9.1,
+      "Grade": 0,
+      "SD": 4,
+      "SPM": 4.43,
+      "Si_OH4": 261.91,
+      "TN": 385.04,
+      "TP": 22.79,
+      "area": "후쿠오카 한국",
+      "chlorophyll": 2.51,
+      "direction": 25,
+      "dissolved_oxygen": 9.9,
+      "latitude": 34.0087,
+      "layer_name": "표층",
+      "longitude": 128.5799,
+      "pH": 8.19,
+      "salinity": 29.14,
+      "temperature": 13.55,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-36": {
+    "move01": {
+      "COD": 1.13,
+      "DIN": 101.18,
+      "DIP": 14.7,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 36.17,
+      "Si_OH4": 364.91,
+      "TN": 127.42,
+      "TP": 38.48,
+      "area": "황해 1",
+      "chlorophyll": 2.69,
+      "direction": 255,
+      "dissolved_oxygen": 9.8,
+      "latitude": 35.0778,
+      "layer_name": "표층",
+      "longitude": 123.7548,
+      "pH": 8.19,
+      "salinity": 31.39,
+      "temperature": 16.36,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-37": {
+    "move01": {
+      "COD": 2.02,
+      "DIN": 97.87,
+      "DIP": 9.38,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 22.59,
+      "Si_OH4": 449.33,
+      "TN": 122.87,
+      "TP": 22.62,
+      "area": "동중국해(제주도 아래)",
+      "chlorophyll": 2.96,
+      "direction": 271,
+      "dissolved_oxygen": 8.37,
+      "latitude": 28.7531,
+      "layer_name": "표층",
+      "longitude": 124.2358,
+      "pH": 8.25,
+      "salinity": 30.59,
+      "temperature": 16.16,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-38": {
+    "move01": {
+      "COD": 2.07,
+      "DIN": 141.04,
+      "DIP": 10.86,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 42.79,
+      "Si_OH4": 206.42,
+      "TN": 147.14,
+      "TP": 35.7,
+      "area": "동해 위",
+      "chlorophyll": 1.93,
+      "direction": 230,
+      "dissolved_oxygen": 8.5,
+      "latitude": 42.0989,
+      "layer_name": "표층",
+      "longitude": 131.3498,
+      "pH": 8.14,
+      "salinity": 30.37,
+      "temperature": 13.15,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-39": {
+    "move01": {
+      "COD": 1.99,
+      "DIN": 58.6,
+      "DIP": 22.19,
+      "Grade": 0,
+      "SD": 1,
+      "SPM": 9.95,
+      "Si_OH4": 133.14,
+      "TN": 383.33,
+      "TP": 32.86,
+      "area": "동해 위",
+      "chlorophyll": 3.59,
+      "direction": 172,
+      "dissolved_oxygen": 9.59,
+      "latitude": 41.7183,
+      "layer_name": "표층",
+      "longitude": 135.4457,
+      "pH": 8.12,
+      "salinity": 29.48,
+      "temperature": 14.61,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-40": {
+    "move01": {
+      "COD": 1.57,
+      "DIN": 192,
+      "DIP": 9.03,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 24.25,
+      "Si_OH4": 378.75,
+      "TN": 170.84,
+      "TP": 14.37,
+      "area": "황해 1",
+      "chlorophyll": 2.08,
+      "direction": 259,
+      "dissolved_oxygen": 9.42,
+      "latitude": 35.4781,
+      "layer_name": "표층",
+      "longitude": 123.5828,
+      "pH": 8.15,
+      "salinity": 29.63,
+      "temperature": 17.79,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-41": {
+    "move01": {
+      "COD": 1.72,
+      "DIN": 33.1,
+      "DIP": 5.95,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 31,
+      "Si_OH4": 220.39,
+      "TN": 256.97,
+      "TP": 31.41,
+      "area": "황해 2",
+      "chlorophyll": 1.36,
+      "direction": 100,
+      "dissolved_oxygen": 9.09,
+      "latitude": 36.7711,
+      "layer_name": "표층",
+      "longitude": 122.0292,
+      "pH": 8.08,
+      "salinity": 32.24,
+      "temperature": 15.82,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-42": {
+    "move01": {
+      "COD": 1.29,
+      "DIN": 166.39,
+      "DIP": 12.36,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 38.27,
+      "Si_OH4": 357.95,
+      "TN": 352.24,
+      "TP": 28.62,
+      "area": "동해 아래 2",
+      "chlorophyll": 2.2,
+      "direction": 99,
+      "dissolved_oxygen": 7.82,
+      "latitude": 37.8634,
+      "layer_name": "표층",
+      "longitude": 134.7388,
+      "pH": 8.26,
+      "salinity": 32.86,
+      "temperature": 14.54,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-43": {
+    "move01": {
+      "COD": 1.92,
+      "DIN": 195.1,
+      "DIP": 22.29,
+      "Grade": 0,
+      "SD": 3,
+      "SPM": 17.93,
+      "Si_OH4": 332.99,
+      "TN": 301.79,
+      "TP": 16.5,
+      "area": "동해 위",
+      "chlorophyll": 2.76,
+      "direction": 329,
+      "dissolved_oxygen": 9.69,
+      "latitude": 41.6775,
+      "layer_name": "표층",
+      "longitude": 134.9564,
+      "pH": 8.2,
+      "salinity": 33.01,
+      "temperature": 15.52,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-44": {
+    "move01": {
+      "COD": 1.05,
+      "DIN": 185.38,
+      "DIP": 22.82,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 6.74,
+      "Si_OH4": 380.43,
+      "TN": 366.43,
+      "TP": 30.21,
+      "area": "동중국해(제주도 아래)",
+      "chlorophyll": 3.4,
+      "direction": 91,
+      "dissolved_oxygen": 9.59,
+      "latitude": 29.7531,
+      "layer_name": "표층",
+      "longitude": 127.5672,
+      "pH": 8.06,
+      "salinity": 31.54,
+      "temperature": 16.49,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-45": {
+    "move01": {
+      "COD": 1.31,
+      "DIN": 110.29,
+      "DIP": 21.65,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 26.55,
+      "Si_OH4": 308.66,
+      "TN": 245.39,
+      "TP": 16.47,
+      "area": "황해 1",
+      "chlorophyll": 1.81,
+      "direction": 176,
+      "dissolved_oxygen": 9.12,
+      "latitude": 35.0829,
+      "layer_name": "표층",
+      "longitude": 126.1198,
+      "pH": 8.13,
+      "salinity": 32.07,
+      "temperature": 13.16,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-46": {
+    "move01": {
+      "COD": 2.17,
+      "DIN": 133.75,
+      "DIP": 6.36,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 50.36,
+      "Si_OH4": 346.5,
+      "TN": 347.84,
+      "TP": 20.99,
+      "area": "황해 1",
+      "chlorophyll": 4,
+      "direction": 331,
+      "dissolved_oxygen": 7.82,
+      "latitude": 34.9236,
+      "layer_name": "표층",
+      "longitude": 124.0652,
+      "pH": 8.05,
+      "salinity": 32.03,
+      "temperature": 15.82,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-47": {
+    "move01": {
+      "COD": 2,
+      "DIN": 203.45,
+      "DIP": 7.67,
+      "Grade": 0,
+      "SD": 6,
+      "SPM": 17.24,
+      "Si_OH4": 222.4,
+      "TN": 200.74,
+      "TP": 16.71,
+      "area": "황해 1",
+      "chlorophyll": 1.63,
+      "direction": 234,
+      "dissolved_oxygen": 7.95,
+      "latitude": 34.7209,
+      "layer_name": "표층",
+      "longitude": 121.0909,
+      "pH": 8.2,
+      "salinity": 29.13,
+      "temperature": 14.53,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-48": {
+    "move01": {
+      "COD": 1.36,
+      "DIN": 205.97,
+      "DIP": 13.31,
+      "Grade": 0,
+      "SD": 4,
+      "SPM": 30.71,
+      "Si_OH4": 168.74,
+      "TN": 295.48,
+      "TP": 17.4,
+      "area": "황해 1",
+      "chlorophyll": 3.65,
+      "direction": 224,
+      "dissolved_oxygen": 7.71,
+      "latitude": 35.2539,
+      "layer_name": "표층",
+      "longitude": 122.6539,
+      "pH": 8.18,
+      "salinity": 30.88,
+      "temperature": 13.93,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-49": {
+    "move01": {
+      "COD": 2.14,
+      "DIN": 166.2,
+      "DIP": 15.47,
+      "Grade": 0,
+      "SD": 5,
+      "SPM": 11.45,
+      "Si_OH4": 393.26,
+      "TN": 233.52,
+      "TP": 17.27,
+      "area": "동해 아래 2",
+      "chlorophyll": 0.6,
+      "direction": 253,
+      "dissolved_oxygen": 7.71,
+      "latitude": 39.2017,
+      "layer_name": "표층",
+      "longitude": 133.7732,
+      "pH": 8.2,
+      "salinity": 33.01,
+      "temperature": 18.72,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "A-50": {
+    "move01": {
+      "COD": 1.64,
+      "DIN": 216.58,
+      "DIP": 9.95,
+      "Grade": 0,
+      "SD": 2,
+      "SPM": 25.92,
+      "Si_OH4": 146.69,
+      "TN": 127.97,
+      "TP": 24.66,
+      "area": "황해 1",
+      "chlorophyll": 2.97,
+      "direction": 292,
+      "dissolved_oxygen": 8.05,
+      "latitude": 35.58,
+      "layer_name": "표층",
+      "longitude": 126.1132,
+      "pH": 8.17,
+      "salinity": 29.8,
+      "temperature": 18.43,
+      "times": "2023-08-23 15:59:11"
+    }
+  },
+  "pressure_data": {
+    "A-01": {
+      "latitude": 26,
+      "longitude": 118,
+      "pressure": 1004
+    },
+    "A-02": {
+      "latitude": 26,
+      "longitude": 120,
+      "pressure": 1004
+    },
+    "A-03": {
+      "latitude": 26,
+      "longitude": 122,
+      "pressure": 1005
+    },
+    "A-04": {
+      "latitude": 26,
+      "longitude": 124,
+      "pressure": 1006
+    },
+    "A-05": {
+      "latitude": 26,
+      "longitude": 126,
+      "pressure": 1007
+    },
+    "A-06": {
+      "latitude": 26,
+      "longitude": 128,
+      "pressure": 1007
+    },
+    "A-07": {
+      "latitude": 26,
+      "longitude": 130,
+      "pressure": 1008
+    },
+    "A-08": {
+      "latitude": 26,
+      "longitude": 132,
+      "pressure": 1008
+    },
+    "A-09": {
+      "latitude": 26,
+      "longitude": 134,
+      "pressure": 1009
+    },
+    "A-10": {
+      "latitude": 26,
+      "longitude": 136,
+      "pressure": 1009
+    },
+    "A-11": {
+      "latitude": 26,
+      "longitude": 138,
+      "pressure": 1010
+    },
+    "A-12": {
+      "latitude": 26,
+      "longitude": 140,
+      "pressure": 1011
+    },
+    "A-13": {
+      "latitude": 26,
+      "longitude": 142,
+      "pressure": 1012
+    },
+    "B-01": {
+      "latitude": 28,
+      "longitude": 118,
+      "pressure": 1006
+    },
+    "B-02": {
+      "latitude": 28,
+      "longitude": 120,
+      "pressure": 1005
+    },
+    "B-03": {
+      "latitude": 28,
+      "longitude": 122,
+      "pressure": 1004
+    },
+    "B-04": {
+      "latitude": 28,
+      "longitude": 124,
+      "pressure": 1005
+    },
+    "B-05": {
+      "latitude": 28,
+      "longitude": 126,
+      "pressure": 1006
+    },
+    "B-06": {
+      "latitude": 28,
+      "longitude": 128,
+      "pressure": 1007
+    },
+    "B-07": {
+      "latitude": 28,
+      "longitude": 130,
+      "pressure": 1007
+    },
+    "B-08": {
+      "latitude": 28,
+      "longitude": 132,
+      "pressure": 1008
+    },
+    "B-09": {
+      "latitude": 28,
+      "longitude": 134,
+      "pressure": 1008
+    },
+    "B-10": {
+      "latitude": 28,
+      "longitude": 136,
+      "pressure": 1009
+    },
+    "B-11": {
+      "latitude": 28,
+      "longitude": 138,
+      "pressure": 1010
+    },
+    "B-12": {
+      "latitude": 28,
+      "longitude": 140,
+      "pressure": 1012
+    },
+    "B-13": {
+      "latitude": 28,
+      "longitude": 142,
+      "pressure": 1013
+    },
+    "C-01": {
+      "latitude": 30,
+      "longitude": 118,
+      "pressure": 1005
+    },
+    "C-02": {
+      "latitude": 30,
+      "longitude": 120,
+      "pressure": 1005
+    },
+    "C-03": {
+      "latitude": 30,
+      "longitude": 122,
+      "pressure": 1005
+    },
+    "C-04": {
+      "latitude": 30,
+      "longitude": 124,
+      "pressure": 1005
+    },
+    "C-05": {
+      "latitude": 30,
+      "longitude": 126,
+      "pressure": 1006
+    },
+    "C-06": {
+      "latitude": 30,
+      "longitude": 128,
+      "pressure": 1007
+    },
+    "C-07": {
+      "latitude": 30,
+      "longitude": 130,
+      "pressure": 1007
+    },
+    "C-08": {
+      "latitude": 30,
+      "longitude": 132,
+      "pressure": 1007
+    },
+    "C-09": {
+      "latitude": 30,
+      "longitude": 134,
+      "pressure": 1008
+    },
+    "C-10": {
+      "latitude": 30,
+      "longitude": 136,
+      "pressure": 1009
+    },
+    "C-11": {
+      "latitude": 30,
+      "longitude": 138,
+      "pressure": 1010
+    },
+    "C-12": {
+      "latitude": 30,
+      "longitude": 140,
+      "pressure": 1012
+    },
+    "C-13": {
+      "latitude": 30,
+      "longitude": 142,
+      "pressure": 1013
+    },
+    "D-01": {
+      "latitude": 32,
+      "longitude": 118,
+      "pressure": 1005
+    },
+    "D-02": {
+      "latitude": 32,
+      "longitude": 120,
+      "pressure": 1005
+    },
+    "D-03": {
+      "latitude": 32,
+      "longitude": 122,
+      "pressure": 1005
+    },
+    "D-04": {
+      "latitude": 32,
+      "longitude": 124,
+      "pressure": 1004
+    },
+    "D-05": {
+      "latitude": 32,
+      "longitude": 126,
+      "pressure": 1005
+    },
+    "D-06": {
+      "latitude": 32,
+      "longitude": 128,
+      "pressure": 1006
+    },
+    "D-07": {
+      "latitude": 32,
+      "longitude": 130,
+      "pressure": 1007
+    },
+    "D-08": {
+      "latitude": 32,
+      "longitude": 132,
+      "pressure": 1007
+    },
+    "D-09": {
+      "latitude": 32,
+      "longitude": 134,
+      "pressure": 1007
+    },
+    "D-10": {
+      "latitude": 32,
+      "longitude": 136,
+      "pressure": 1008
+    },
+    "D-11": {
+      "latitude": 32,
+      "longitude": 138,
+      "pressure": 1010
+    },
+    "D-12": {
+      "latitude": 32,
+      "longitude": 140,
+      "pressure": 1012
+    },
+    "D-13": {
+      "latitude": 32,
+      "longitude": 142,
+      "pressure": 1014
+    },
+    "E-01": {
+      "latitude": 34,
+      "longitude": 118,
+      "pressure": 1006
+    },
+    "E-02": {
+      "latitude": 34,
+      "longitude": 120,
+      "pressure": 1006
+    },
+    "E-03": {
+      "latitude": 34,
+      "longitude": 122,
+      "pressure": 1005
+    },
+    "E-04": {
+      "latitude": 34,
+      "longitude": 124,
+      "pressure": 1002
+    },
+    "E-05": {
+      "latitude": 34,
+      "longitude": 126,
+      "pressure": 1004
+    },
+    "E-06": {
+      "latitude": 34,
+      "longitude": 128,
+      "pressure": 1005
+    },
+    "E-07": {
+      "latitude": 34,
+      "longitude": 130,
+      "pressure": 1006
+    },
+    "E-08": {
+      "latitude": 34,
+      "longitude": 132,
+      "pressure": 1007
+    },
+    "E-09": {
+      "latitude": 34,
+      "longitude": 134,
+      "pressure": 1008
+    },
+    "E-10": {
+      "latitude": 34,
+      "longitude": 136,
+      "pressure": 1011
+    },
+    "E-11": {
+      "latitude": 34,
+      "longitude": 138,
+      "pressure": 1011
+    },
+    "E-12": {
+      "latitude": 34,
+      "longitude": 140,
+      "pressure": 1012
+    },
+    "E-13": {
+      "latitude": 34,
+      "longitude": 142,
+      "pressure": 1014
+    },
+    "F-01": {
+      "latitude": 36,
+      "longitude": 118,
+      "pressure": 1007
+    },
+    "F-02": {
+      "latitude": 36,
+      "longitude": 120,
+      "pressure": 1006
+    },
+    "F-03": {
+      "latitude": 36,
+      "longitude": 122,
+      "pressure": 1006
+    },
+    "F-04": {
+      "latitude": 36,
+      "longitude": 124,
+      "pressure": 1005
+    },
+    "F-05": {
+      "latitude": 36,
+      "longitude": 126,
+      "pressure": 1005
+    },
+    "F-06": {
+      "latitude": 36,
+      "longitude": 128,
+      "pressure": 1005
+    },
+    "F-07": {
+      "latitude": 36,
+      "longitude": 130,
+      "pressure": 1005
+    },
+    "F-08": {
+      "latitude": 36,
+      "longitude": 132,
+      "pressure": 1006
+    },
+    "F-09": {
+      "latitude": 36,
+      "longitude": 134,
+      "pressure": 1006
+    },
+    "F-10": {
+      "latitude": 36,
+      "longitude": 136,
+      "pressure": 1008
+    },
+    "F-11": {
+      "latitude": 36,
+      "longitude": 138,
+      "pressure": 1013
+    },
+    "F-12": {
+      "latitude": 36,
+      "longitude": 140,
+      "pressure": 1011
+    },
+    "F-13": {
+      "latitude": 36,
+      "longitude": 142,
+      "pressure": 1014
+    },
+    "G-01": {
+      "latitude": 38,
+      "longitude": 118,
+      "pressure": 1007
+    },
+    "G-02": {
+      "latitude": 38,
+      "longitude": 120,
+      "pressure": 1007
+    },
+    "G-03": {
+      "latitude": 38,
+      "longitude": 122,
+      "pressure": 1006
+    },
+    "G-04": {
+      "latitude": 38,
+      "longitude": 124,
+      "pressure": 1005
+    },
+    "G-05": {
+      "latitude": 38,
+      "longitude": 126,
+      "pressure": 1005
+    },
+    "G-06": {
+      "latitude": 38,
+      "longitude": 128,
+      "pressure": 1006
+    },
+    "G-07": {
+      "latitude": 38,
+      "longitude": 130,
+      "pressure": 1005
+    },
+    "G-08": {
+      "latitude": 38,
+      "longitude": 132,
+      "pressure": 1007
+    },
+    "G-09": {
+      "latitude": 38,
+      "longitude": 134,
+      "pressure": 1007
+    },
+    "G-10": {
+      "latitude": 38,
+      "longitude": 136,
+      "pressure": 1008
+    },
+    "G-11": {
+      "latitude": 38,
+      "longitude": 138,
+      "pressure": 1008
+    },
+    "G-12": {
+      "latitude": 38,
+      "longitude": 140,
+      "pressure": 1009
+    },
+    "G-13": {
+      "latitude": 38,
+      "longitude": 142,
+      "pressure": 1013
+    },
+    "H-01": {
+      "latitude": 40,
+      "longitude": 118,
+      "pressure": 1007
+    },
+    "H-02": {
+      "latitude": 40,
+      "longitude": 120,
+      "pressure": 1007
+    },
+    "H-03": {
+      "latitude": 40,
+      "longitude": 122,
+      "pressure": 1006
+    },
+    "H-04": {
+      "latitude": 40,
+      "longitude": 124,
+      "pressure": 1005
+    },
+    "H-05": {
+      "latitude": 40,
+      "longitude": 126,
+      "pressure": 1005
+    },
+    "H-06": {
+      "latitude": 40,
+      "longitude": 128,
+      "pressure": 1007
+    },
+    "H-07": {
+      "latitude": 40,
+      "longitude": 130,
+      "pressure": 1007
+    },
+    "H-08": {
+      "latitude": 40,
+      "longitude": 132,
+      "pressure": 1007
+    },
+    "H-09": {
+      "latitude": 40,
+      "longitude": 134,
+      "pressure": 1007
+    },
+    "H-10": {
+      "latitude": 40,
+      "longitude": 136,
+      "pressure": 1009
+    },
+    "H-11": {
+      "latitude": 40,
+      "longitude": 138,
+      "pressure": 1009
+    },
+    "H-12": {
+      "latitude": 40,
+      "longitude": 140,
+      "pressure": 1009
+    },
+    "H-13": {
+      "latitude": 40,
+      "longitude": 142,
+      "pressure": 1010
+    }
+  }
+}

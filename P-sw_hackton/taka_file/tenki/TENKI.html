@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <title>気圧配置図</title>
+    <style>
+        .map {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map"></div>
+    <script>
+        const api_key = "53f03c9d9f0082bec25f418ff553df6e";
+        const ranges = {
+            '제주도 ': { 'lat': [31.0, 34.50], 'lon': [121.8, 129.3] },
+            // 他の地域も追加可能
+        };
+
+        for (const [region, coords] of Object.entries(ranges)) {
+            const lats = [];
+            const lons = [];
+            const colors = [];
+            const lat_min = coords['lat'][0];
+            const lat_max = coords['lat'][1];
+            const lon_min = coords['lon'][0];
+            const lon_max = coords['lon'][1];
+
+            for (let lat = lat_min; lat < lat_max; lat += 0.5) {
+                for (let lon = lon_min; lon < lon_max; lon += 0.5) {
+                    const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            const pressure = data['main']['pressure'];
+
+                            // 気圧に応じて色を細分化
+                            let color;
+                            if (pressure >= 1030) color = 'darkblue';
+                            else if (pressure >= 1013) color = 'blue';
+                            else if (pressure >= 1000) color = 'lightblue';
+                            else if (pressure >= 990) color = 'pink';
+                            else if (pressure >= 970) color = 'red';
+                            else color = 'darkred';
+
+                            lats.push(lat);
+                            lons.push(lon);
+                            colors.push(color);
+
+                            // D3を使って図の作成
+                            const svg = d3.select('.map').append('svg')
+                                .attr('width', 800)
+                                .attr('height', 800);
+
+                            svg.selectAll('circle')
+                                .data(lats)
+                                .enter()
+                                .append('circle')
+                                .attr('cx', d => d)
+                                .attr('cy', (d, i) => lons[i])
+                                .attr('r', 2)
+                                .attr('fill', (d, i) => colors[i]);
+                        });
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 文書の文字エンコーディングとブラウザの互換性設定 -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!-- 文書のタイトル -->
+  <title>The Blue Ocean</title>
+  <!-- ビューポート設定 -->
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+    name="viewport" />
+  <!-- 地図スタイルシートのリンク -->
+  <link rel="stylesheet" href="../assets/css/map.css">
+  <!-- Firebaseライブラリのスクリプトのリンク -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+  <!-- deck.glのスクリプト -->
+  <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+
+</head>
+
+<body class="sidebar-bg">
+  <!-- 本文の内容を格納するdiv要素 -->
+  <div id="content">
+    <!-- ボタンコンテナ -->
+    <div class="button-container">
+      <!-- ここにボタンや関連する内容が配置されることがあります -->
+    </div>
+    <!-- 地図を表示するdiv要素 -->
+    <div id="map"></div>
+    <!-- 検索入力とボタンを含む検索コンテナ -->
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="ex.황해,동해,남해">
+      <button id="search-button">
+        <img id="search-img" src="../assets/img/search_icon.png" alt="검색" />
+      </button>
+      <!-- <div id="message"></div> -->
+    </div>
+    <div id="dashboard_link" onclick="location.href='dashboard.html'">
+      <img src="../assets/img/dashboard_icon.png" alt="アイコン01" />
+    </div>
+    <div id="fish_link" onclick="location.href='fish_map.html'">
+      <img src="../assets/img/fish_icon.png" alt="アイコン02" />
+    </div>
+    <div id="ais_link" onclick="location.href='ais_map.html'">
+      <img src="../assets/img/ais_icon.png" alt="アイコン03" />
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+<!-- カスタムマップのスクリプトのリンク -->
+<script src="../assets/js/map.js">document.getElementById("toggleLayer").addEventListener("click", toggleGeoJsonLayer);
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjKXCt5Qq5LaoyFtovgcA12N8C47tjIRM&callback=initMap" async
+  defer></script>
+
+</html>

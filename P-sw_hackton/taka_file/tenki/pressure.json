@@ -1,0 +1,124 @@
+{
+  "pressure_data": {
+    "A-01": {
+      "latitude": 27.5,
+      "longitude": 119.5,
+      "pressure": 1010
+    },
+    "A-02": {
+      "latitude": 27.5,
+      "longitude": 124.5,
+      "pressure": 1009
+    },
+    "A-03": {
+      "latitude": 27.5,
+      "longitude": 129.5,
+      "pressure": 1010
+    },
+    "A-04": {
+      "latitude": 27.5,
+      "longitude": 134.5,
+      "pressure": 1011
+    },
+    "A-05": {
+      "latitude": 27.5,
+      "longitude": 139.5,
+      "pressure": 1009
+    },
+    "A-06": {
+      "latitude": 27.5,
+      "longitude": 144.5,
+      "pressure": 1006
+    },
+    "B-01": {
+      "latitude": 32.5,
+      "longitude": 119.5,
+      "pressure": 1008
+    },
+    "B-02": {
+      "latitude": 32.5,
+      "longitude": 124.5,
+      "pressure": 1010
+    },
+    "B-03": {
+      "latitude": 32.5,
+      "longitude": 129.5,
+      "pressure": 1012
+    },
+    "B-04": {
+      "latitude": 32.5,
+      "longitude": 134.5,
+      "pressure": 1012
+    },
+    "B-05": {
+      "latitude": 32.5,
+      "longitude": 139.5,
+      "pressure": 1012
+    },
+    "B-06": {
+      "latitude": 32.5,
+      "longitude": 144.5,
+      "pressure": 1011
+    },
+    "C-01": {
+      "latitude": 37.5,
+      "longitude": 119.5,
+      "pressure": 1009
+    },
+    "C-02": {
+      "latitude": 37.5,
+      "longitude": 124.5,
+      "pressure": 1011
+    },
+    "C-03": {
+      "latitude": 37.5,
+      "longitude": 129.5,
+      "pressure": 1011
+    },
+    "C-04": {
+      "latitude": 37.5,
+      "longitude": 134.5,
+      "pressure": 1012
+    },
+    "C-05": {
+      "latitude": 37.5,
+      "longitude": 139.5,
+      "pressure": 1014
+    },
+    "C-06": {
+      "latitude": 37.5,
+      "longitude": 144.5,
+      "pressure": 1013
+    },
+    "D-01": {
+      "latitude": 42.5,
+      "longitude": 119.5,
+      "pressure": 1010
+    },
+    "D-02": {
+      "latitude": 42.5,
+      "longitude": 124.5,
+      "pressure": 1011
+    },
+    "D-03": {
+      "latitude": 42.5,
+      "longitude": 129.5,
+      "pressure": 1013
+    },
+    "D-04": {
+      "latitude": 42.5,
+      "longitude": 134.5,
+      "pressure": 1011
+    },
+    "D-05": {
+      "latitude": 42.5,
+      "longitude": 139.5,
+      "pressure": 1012
+    },
+    "D-06": {
+      "latitude": 42.5,
+      "longitude": 144.5,
+      "pressure": 1013
+    }
+  }
+}
