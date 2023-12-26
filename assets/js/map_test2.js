@@ -1,0 +1,430 @@
+// BUNCH
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyC6RM-JOezScoTB-vOWhMSXh7sYPpZKyhg",
+//   authDomain: "asia-404305.firebaseapp.com",
+//   databaseURL: "https://asia-404305-default-rtdb.firebaseio.com",
+//   projectId: "asia-404305",
+//   storageBucket: "asia-404305.appspot.com",
+//   messagingSenderId: "838765553299",
+//   appId: "1:838765553299:web:fbf45f8afe5a80d8d8cf66",
+//   measurementId: "G-SK4K6MNGVD"
+// };
+
+// MEGA_BULE
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAx1xUEgJ3-t-NUb5kiXgFTysReX_BVf4c",
+  authDomain: "mega-blue.firebaseapp.com",
+  databaseURL: "https://mega-blue-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "mega-blue",
+  storageBucket: "mega-blue.appspot.com",
+  messagingSenderId: "878936419008",
+  appId: "1:878936419008:web:c8051dd8868ff9c17cdb25",
+  measurementId: "G-YKWS3HBW98"
+};
+// Firebaseを初期化します
+firebase.initializeApp(firebaseConfig);
+
+function fetchAllCoordinates(callback) {
+  const coordinates = [];
+
+  const dbRef = firebase.database().ref();
+  dbRef.on("value", (snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      const id = childSnapshot.key; // ユニークID（"574001590"など）
+      let maxTimestamp = null;
+      let maxTimestampData = null;
+
+      childSnapshot.forEach((timestampSnapshot) => {
+        const timestamp = timestampSnapshot.key; // タイムスタンプ（"2023-12-23 07:11:47"など）
+        const data = timestampSnapshot.val();
+
+        // 最も新しいタイムスタンプのデータを更新
+        if (!maxTimestamp || new Date(timestamp) > new Date(maxTimestamp)) {
+          maxTimestamp = timestamp;
+          maxTimestampData = {
+            tableId: id,
+            moveKey: timestamp, // タイムスタンプをmoveKeyとして使用
+            lat: parseFloat(data.latitude),
+            lng: parseFloat(data.longitude),
+            oxg: data.dissolved_oxygen,
+            ch: data.chlorophyll,
+            tn: data.TN,
+            tp: data.TP,
+            din: data.DIN,
+            dip: data.DIP,
+            sd: data.SD,
+            value: data.Grade,
+          };
+        }
+      });
+
+      if (maxTimestampData) {
+        coordinates.push(maxTimestampData);
+      }
+    });
+
+    if (coordinates.length > 0) {
+      callback(coordinates);
+    }
+  });
+}
+// function fetchAllCoordinates(callback) {
+//   const coordinates = [];
+
+//   for (let i = 1; i <= 50; i++) {
+//     const id = "A-" + String(i).padStart(2, "0");
+//     const dbRef = firebase.database().ref(id);
+//     const tableId = id;
+//     let maxMoveKeyCoordinate = null; // 가장 큰 moveKey 좌표를 저장하기 위한 변수
+//     dbRef.on("value", (snapshot) => {
+//       snapshot.forEach((childSnapshot) => {
+//         const moveKey = childSnapshot.key; // move01, move02, ...
+//         const data = childSnapshot.val();
+//         const coordinate = {
+//           tableId,
+//           moveKey,
+//           lat: parseFloat(data.latitude),
+//           lng: parseFloat(data.longitude),
+//           value: data.Grade,
+//           cod: data.COD,
+//           dip: data.DIP,
+//           sd: data.SD,
+//           spm: data.SPM,
+//           si: data.Si_OH4,
+//           tn: data.TN,
+//           tp: data.TP,
+//           ch: data.chlorophyll,
+//           oxg: data.dissolved_oxygen,
+//           ph: data.pH,
+//           sal: data.salinity,
+//           temp: data.temperature,
+//         };
+
+//         if (!isNaN(coordinate.lat) && !isNaN(coordinate.lng)) {
+//           // 가장 큰 moveKey값을 가진 좌표만 저장
+//           if (!maxMoveKeyCoordinate || parseInt(coordinate.moveKey.slice(4)) > parseInt(maxMoveKeyCoordinate.moveKey.slice(4))) {
+//             maxMoveKeyCoordinate = coordinate;
+//           }
+//         }
+//       });
+//       coordinates[i - 1] = maxMoveKeyCoordinate; // 최대 moveKey 좌표만 저장
+//       if (i === 50) {
+//         callback(coordinates);
+//       }
+//     });
+//   }
+// }
+
+
+function getBounds(coordinate, zoomLevel) {
+  // 1. zoomLevelに基づいてデルタ値を計算します。zoomLevelが高いほどデルタは小さくなります。
+  const delta = 5 / Math.pow(2, zoomLevel);
+
+  // 2. 渡された座標を中心に、計算されたデルタを使って境界を定義します。
+  return {
+    north: coordinate.lat + delta, // 北の境界
+    south: coordinate.lat - delta, // 南の境界
+    east: coordinate.lng + delta,  // 東の境界
+    west: coordinate.lng - delta,  // 西の境界
+  };
+}
+// エレメントを表示する関数
+// function showMessage() {
+//   document.getElementById('message').style.display = 'block';
+// }
+const rectangles = [];
+let existingRectangles = [];
+
+function clearRectangles() {
+  rectangles.forEach((rectObj) => {
+    rectObj.rectangle.setMap(null);
+  });
+  rectangles.length = 0;
+}
+
+function clearRectangles() {
+  rectangles.forEach((rectObj) => {
+    rectObj.rectangle.setMap(null);
+  });
+  rectangles.length = 0;
+}
+
+function initMap() {
+  // 地図を指定されたオプションで初期化
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 7,
+    center: { lat: 35.9078, lng: 127.7669 }, // 中心をSouth Koreaに設定
+    mapTypeId: "terrain",
+    styles: [
+      {
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#f5f5f5",
+          },
+        ],
+      },
+      {
+        elementType: "labels.icon",
+        stylers: [
+          {
+            visibility: "off",
+          },
+        ],
+      },
+      {
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#616161",
+          },
+        ],
+      },
+      {
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            color: "#f5f5f5",
+          },
+        ],
+      },
+      {
+        featureType: "administrative.land_parcel",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#bdbdbd",
+          },
+        ],
+      },
+      {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#eeeeee",
+          },
+        ],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#757575",
+          },
+        ],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#e5e5e5",
+          },
+        ],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#9e9e9e",
+          },
+        ],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#ffffff",
+          },
+        ],
+      },
+      {
+        featureType: "road.arterial",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#757575",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#dadada",
+          },
+        ],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#616161",
+          },
+        ],
+      },
+      {
+        featureType: "road.local",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#9e9e9e",
+          },
+        ],
+      },
+      {
+        featureType: "transit.line",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#e5e5e5",
+          },
+        ],
+      },
+      {
+        featureType: "transit.station",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#eeeeee",
+          },
+        ],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#0B2161",
+          },
+        ],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#9e9e9e",
+          },
+        ],
+      },
+    ],
+    disableDefaultUI: true,
+  });
+  const placesDictionary = {
+    "황해": { lat: 36.180065, lng: 123.033483, zoom: 7 },
+    "동해": { lat: 39.82878758630755, lng: 134.2263995949388, zoom: 7 },
+    "남해": { lat: 33.826896, lng: 128.127185, zoom: 7 },
+    "울산": { lat: 35.2060749, lng: 130.2670383, zoom: 9 },
+    "제주도": { lat: 33.187485, lng: 125.8084014, zoom: 8 },
+  };
+
+
+  // 地図の中心が変更されたときのイベントリスナーを追加
+  map.addListener('center_changed', function () {
+    currentCenter = map.getCenter(); // 現在の中心を取得
+  });
+
+  // 地図のズームが変更されたときのイベントリスナーを追加
+  map.addListener('zoom_changed', function () {
+    currentZoom = map.getZoom(); // 現在のズームレベルを取得
+  });
+
+
+  // 4. 値に基づいて色を取得する関数
+  function getColorByValue(value) {
+    switch (value) {
+      case 1:
+        return "#9fc5e8";
+      case 2:
+        return "#a4d39c";
+      case 3:
+        return "#ffec94";
+      case 4:
+        return "#ffd29a";
+      case 5:
+        return "#ff9c9c";
+      default:
+        return "#00000000";
+    }
+  }
+  // 長方形がクリックされたときの処理を追加
+  function attachRectangleClickHandler(rectangle, coordinate) {
+    google.maps.event.addListener(rectangle, 'click', function () {
+      showRectangleInfo(coordinate);
+    });
+  }
+
+  // content2とその中のboxに情報を表示する関数
+  function showRectangleInfo(coordinate) {
+    var content2 = document.querySelector('.content2');
+    var box = content2.querySelector('.box');
+
+    content2.style.display = 'block'; // content2を表示
+    box.innerHTML = ''; // boxの以前の内容をクリア
+
+    // 情報をboxに追加
+    box.innerHTML += '<p>Latitude: ' + coordinate.lat + '</p>';
+    box.innerHTML += '<p>Longitude: ' + coordinate.lng + '</p>';
+    // 他の情報もここに追加
+  }
+
+  // 좌표 찍는 함수
+  fetchAllCoordinates((coordinates) => {
+    clearRectangles();
+    // 1. 全ての座標を取得します。
+    coordinates.forEach((coordinate, index) => {
+      // 2. それぞれの座標に対して長方形を作成します。
+      const rectangle = new google.maps.Rectangle({
+        // 長方形の属性を設定します。
+        strokeColor: getColorByValue(coordinate.value),
+        strokeOpacity: 0,
+        strokeWeight: 1,
+        fillColor: getColorByValue(coordinate.value),
+        fillOpacity: 0.6,
+        map,
+        zIndex: coordinate.value,
+        bounds: getBounds(coordinate, map.getZoom()),
+      });
+
+      // 3. 長方形と座標を配列に保存します。
+      rectangles.push({ rectangle: rectangle, coordinate: coordinate });
+      attachRectangleClickHandler(rectangle, coordinate); // イベントリスナーを追加
+    });
+
+    google.maps.event.addListener(map, "zoom_changed", function () {
+      // 6. 地図のズームが変更された場合の処理を追加します。
+      const currentCenter = map.getCenter();
+      rectangles.forEach((rect) => {
+        rect.rectangle.setBounds(getBounds(rect.coordinate, map.getZoom()));
+        // 7. 各長方形の境界を更新します。
+      });
+      map.setCenter(currentCenter);
+      // 8. 地図の中心を現在の中心に設定します。
+    });
+  });
+}
+
+function fetchCoordinateDataByPosition(coordinate, callback) {
+  // 1. グローバル変数から指定された座標に一致するデータを検索します。
+  const foundCoordinate = window.coordinatesData.find(
+    (coord) => coord.lat === coordinate.lat && coord.lng === coordinate.lng
+  );
+
+  // 2. 見つかったデータをコールバック関数に渡します。見つからなかった場合はnullを渡します。
+  if (foundCoordinate) {
+    callback(foundCoordinate); // 3. データが見つかった場合、コールバックでそれを返します。
+  } else {
+    callback(null); // 4. データが見つからない場合、コールバックでnullを返します。
+  }
+}
+
+window.coordinatesData = null; // 座標データの初期値をnullに設定
