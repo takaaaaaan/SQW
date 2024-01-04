@@ -120,8 +120,8 @@ def add_parameters_to_json(input_file, output_file):
 
 
 # File paths
-input_file = 'json/ais_data.json'
-output_file = 'json/data_add.json'
+input_file = '../json/random_coordinates.json'
+output_file = '../json/random_coordinates.json'
 
 # Function call
 add_parameters_to_json(input_file, output_file)

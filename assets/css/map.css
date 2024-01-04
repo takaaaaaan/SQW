@@ -23,7 +23,18 @@
 .content2 {
   flex: 0 0 auto;
   width: 40%;
-  /* display: none; */
+}
+.content3 {
+  flex: 0 0 auto;
+  width: 70%;
+}
+.content4 {
+  flex: 0 0 auto;
+  width: 20%;
+}
+.content5 {
+  flex: 0 0 auto;
+  width: 100%;
 }
 /* .content2 {
   width: min(100% - 1rem, 300px);
@@ -43,9 +54,16 @@
   height: min(800px - 1.5rem);
   margin-block: auto;
 } */
+.sobisu {
+  width: 300px;
+  height: auto;
+  margin-top: 10px; /* 上の余白 */
+  margin-left: 60px;
+}
 #map {
-  height: calc(100vh - 105px); /* 上下の余白分を引いた高さに調整 */
-  margin-top: 65px; /* 上の余白 */
+  /* height: calc(100vh - 105px); */
+  height: calc(130vh - 60px); /* 上下の余白分を引いた高さに調整 */
+  margin-top: 10px; /* 上の余白 */
   margin-bottom: 40px; /* 下の余白 */
   border-radius: 20px;
   z-index: 100;
@@ -53,7 +71,8 @@
 
 .box {
   display: flex;
-  height: calc(100vh - 105px); /* 上下の余白分を引いた高さに調整 */
+  flex-wrap: wrap;
+  /* height: calc(100vh - 105px); */
   margin-top: 65px; /* 上の余白 */
   margin-bottom: 40px; /* 下の余白 */
   /* background-color: #007bff; */
@@ -69,15 +88,49 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影の効果 */
 }
 
+.widget-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 15px; */
+}
+
+.widget-header {
+}
+
+#totalGradeCount {
+
+}
+
 .widget-header {
   margin-bottom: 10px; /* ヘッダーとコンテンツ間の余白 */
   font-size: 1.2em; /* ヘッダーのフォントサイズ */
 }
-
-.widget-content {
-  /* コンテンツ部分のスタイル */
+.widget-content2 p {
+  font-size: 14.5px; /* または望むフォントサイズに設定 */
 }
 
+/* .widget-content {
+} */
+.color-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.color-description {
+  display: inline-block;
+}
+
+#main-chart {
+  z-index: 100;
+}
 .button-container {
   display: flex;
   justify-content: center;

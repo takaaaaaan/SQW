@@ -10,6 +10,61 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+// パイチャート
+// パイチャート
+function fetchGradeDataAndDisplayChart() {
+  const dbRef = firebase.database().ref();
+  dbRef.once("value", (snapshot) => {
+    const data = snapshot.val();
+    const gradeCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+    // 각 Grade의 개수 집계
+    for (const id in data) {
+      for (const time in data[id]) {
+        const grade = data[id][time].Grade;
+        if (gradeCounts.hasOwnProperty(grade)) {
+          gradeCounts[grade]++;
+        }
+      }
+    }
+
+    // 総数の計算
+    const totalCount = Object.values(gradeCounts).reduce(
+      (acc, count) => acc + count,
+      0
+    );
+
+    // 総数を表示するHTML要素の選択 (ここでは 'totalGradeCount' というIDを持つ要素と仮定)
+    const totalElement = document.getElementById("totalGradeCount");
+    if (totalElement) {
+      totalElement.textContent = `총건수: ${totalCount}`;
+    }
+
+    // 차트 데이터 준비
+    const chartData = {
+      labels: Object.keys(gradeCounts),
+      datasets: [
+        {
+          label: "Grade Counts",
+          data: Object.values(gradeCounts),
+          backgroundColor: ["#41a4ff", "green", "yellow", "orange", "red"],
+        },
+      ],
+    };
+
+    // 원형 차트 생성
+    const ctx = document.getElementById("gradeChart").getContext("2d");
+    new Chart(ctx, {
+      type: "pie",
+      data: chartData,
+    });
+  });
+}
+
+// 함수 호출
+fetchGradeDataAndDisplayChart();
+
+// データ要求
 function fetchAllCoordinates(callback) {
   const coordinates = [];
 
@@ -64,6 +119,7 @@ function fetchAllCoordinates(callback) {
   });
 }
 
+// zoomLevel計算
 function getBounds(coordinate, zoomLevel) {
   // 1. zoomLevelに基づいてデルタ値を計算します。zoomLevelが高いほどデルタは小さくなります。
   const delta = 5 / Math.pow(2, zoomLevel);
@@ -76,10 +132,7 @@ function getBounds(coordinate, zoomLevel) {
     west: coordinate.lng - delta, // 西の境界
   };
 }
-// エレメントを表示する関数
-// function showMessage() {
-//   document.getElementById('message').style.display = 'block';
-// }
+
 const rectangles = [];
 let existingRectangles = [];
 
@@ -89,14 +142,7 @@ function clearRectangles() {
   });
   rectangles.length = 0;
 }
-
-function clearRectangles() {
-  rectangles.forEach((rectObj) => {
-    rectObj.rectangle.setMap(null);
-  });
-  rectangles.length = 0;
-}
-
+// map
 function initMap() {
   // 地図を指定されたオプションで初期化
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -270,34 +316,128 @@ function initMap() {
     currentCenter = map.getCenter(); // 現在の中心を取得
   });
 
-  // 4. 値に基づいて色を取得する関数
+  // 値に基づいて色を取得する関数
   function getColorByValue(value) {
     switch (value) {
       case 1:
-        return "#9fc5e8";
+        return "#41a4ff"; // 濃い青
       case 2:
-        return "#a4d39c";
+        return "#00bf03"; // 濃い緑
       case 3:
-        return "#ffec94";
+        return "#ffef00"; // 濃い黄色
       case 4:
-        return "#ffd29a";
+        return "#ffa500"; // 濃いオレンジ
       case 5:
-        return "#ff9c9c";
+        return "#ff0000"; // 濃い赤
       default:
-        return "#ffffff";
+        return "#ffffff"; // デフォルトは白
     }
   }
   // 長方形がクリックされたときの処理を追加
   function attachRectangleClickHandler(rectangle, coordinate) {
     google.maps.event.addListener(rectangle, "click", function () {
       showRectangleInfo(coordinate);
+      track(coordinate); /* TODO */
     });
   }
 
-  // content2とその中のboxに情報を表示する関数
+  // 追跡計算
+  function calculateDistance(coord1, coord2) {
+    const R = 6371; // 지구 반지름 (km)
+    const lat1 = (coord1[0] * Math.PI) / 180;
+    const lon1 = (coord1[1] * Math.PI) / 180;
+    const lat2 = (coord2[0] * Math.PI) / 180;
+    const lon2 = (coord2[1] * Math.PI) / 180;
+
+    const dlat = lat2 - lat1;
+    const dlon = lon2 - lon1;
+
+    const a =
+      Math.sin(dlat / 2) ** 2 +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dlon / 2) ** 2;
+    const c = 2 * Math.asin(Math.sqrt(a));
+
+    return R * c;
+  }
+
+  // 追跡データ表示
+  function showTrackInfo(data) {
+    var box = document.querySelector(".widget-content2");
+    box.innerHTML = ""; // boxの以前の内容をクリア
+    let htmlContent = "";
+    data.forEach((item, index) => {
+      // ISO形式の日付をDateオブジェクトに変換
+      const date = new Date(item.timeStr);
+
+      // 日付を指定された形式に変換
+      const formattedDate = date.toLocaleString("ko-KR", {
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      });
+
+      htmlContent += `<p> ${formattedDate},<br>배 이름: ${item.shipId}</p>`;
+    });
+
+    // box 요소の内容 업デート
+    box.innerHTML = htmlContent;
+  }
+
+  // 追跡
+  function track(dataa) {
+    const dbRef = firebase.database().ref();
+
+    dbRef.once("value", (snapshot) => {
+      const data = snapshot.val();
+      let grade5Ship = null;
+      let grade5Time = null;
+      let grade5Coords = null;
+
+      for (let shipId in data) {
+        for (let timeStr in data[shipId]) {
+          const record = data[shipId][timeStr];
+          if (record["Grade"] === 5) {
+            grade5Ship = shipId;
+            grade5Time = new Date(timeStr);
+            grade5Coords = [record["latitude"], record["longitude"]];
+            break;
+          }
+        }
+        if (grade5Ship) break;
+      }
+
+      // 다른 선박들과의 거리 계산
+      let shipDistances = [];
+      if (grade5Ship) {
+        for (let shipId in data) {
+          if (shipId !== grade5Ship) {
+            for (let timeStr in data[shipId]) {
+              const record = data[shipId][timeStr];
+              const recordTime = new Date(timeStr);
+              if (recordTime < grade5Time) {
+                const coords = [record["latitude"], record["longitude"]];
+                const distance = calculateDistance(grade5Coords, coords);
+                shipDistances.push({ shipId, coords, distance, timeStr });
+              }
+            }
+          }
+        }
+      }
+
+      // 거리에 따라 정렬하고 상위 3개 선박 선택
+      const closestShips = shipDistances
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 3);
+      console.log(closestShips);
+      showTrackInfo(closestShips);
+    });
+  }
+
+  // データ表示
   function showRectangleInfo(coordinate) {
-    var content2 = document.querySelector(".col-2");
-    var box = content2.querySelector(".box");
+    var content2 = document.querySelector(".content2");
+    var box = document.querySelector(".widget-content1");
 
     content2.style.display = "block"; // content2を表示
     box.innerHTML = ""; // boxの以前の内容をクリア
@@ -308,29 +448,54 @@ function initMap() {
       snapshot.forEach((childSnapshot) => {
         childSnapshot.forEach((timestampSnapshot) => {
           const data = timestampSnapshot.val();
+
+          // timestampSnapshot.key 값을 파싱하여 UTC 시간으로 처리
+          var utcTimestamp = new Date(timestampSnapshot.key + "Z");
+
+          // 로컬 시간으로 변환 (toLocaleString 사용)
+          var kstTimestamp = utcTimestamp.toLocaleString("ko-KR", {
+            timeZone: "Asia/Seoul",
+          });
+
           if (
             parseFloat(data.latitude) === coordinate.lat &&
             parseFloat(data.longitude) === coordinate.lng
           ) {
             // 情報をboxに追加
-            box.innerHTML += `<p>Timestamp: ${timestampSnapshot.key}</p>`;
-            box.innerHTML += `<p>Latitude: ${data.latitude}</p>`;
-            box.innerHTML += `<p>Longitude: ${data.longitude}</p>`;
-            box.innerHTML += `<p>Dissolved Oxygen: ${data.dissolved_oxygen}</p>`;
-            box.innerHTML += `<p>Chlorophyll: ${data.chlorophyll}</p>`;
-            box.innerHTML += `<p>TN: ${data.TN}</p>`;
-            box.innerHTML += `<p>TP: ${data.TP}</p>`;
-            box.innerHTML += `<p>DIN: ${data.DIN}</p>`;
-            box.innerHTML += `<p>DIP: ${data.DIP}</p>`;
-            box.innerHTML += `<p>SD: ${data.SD}</p>`;
-            box.innerHTML += `<p>Grade: ${data.Grade}</p>`;
+            box.innerHTML += `<p>시각: ${kstTimestamp}</p>`;
+            box.innerHTML += `<p>위도: ${parseFloat(data.latitude).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>경도: ${parseFloat(data.longitude).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>산소량: ${parseFloat(
+              data.dissolved_oxygen
+            ).toFixed(2)}</p>`;
+            box.innerHTML += `<p>엽록소 수치: ${parseFloat(
+              data.chlorophyll
+            ).toFixed(2)}</p>`;
+            box.innerHTML += `<p>질소 농도: ${parseFloat(data.TN).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>인 농도: ${parseFloat(data.TP).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>무기질소: ${parseFloat(data.DIN).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>무기인: ${parseFloat(data.DIP).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>투명도: ${parseFloat(data.SD).toFixed(2)}</p>`;
+            box.innerHTML += `<p>오염도 수치: ${data.Grade}</p>`;
           }
         });
       });
     });
   }
 
-  // 좌표 찍는 함수
+  // 長方形
   fetchAllCoordinates((coordinates) => {
     clearRectangles();
     // 1. 全ての座標を取得します。
@@ -342,7 +507,7 @@ function initMap() {
         strokeOpacity: 0,
         strokeWeight: 1,
         fillColor: getColorByValue(coordinate.value),
-        fillOpacity: 0.6,
+        fillOpacity: 1,
         map,
         zIndex: coordinate.value,
         bounds: getBounds(coordinate, map.getZoom()),
@@ -365,46 +530,6 @@ function initMap() {
     });
   });
 }
-
-// 좌표 찍는 함수
-//   fetchAllCoordinates((coordinates) => {
-//     clearRectangles();
-
-//     coordinates.forEach((coordinate, index) => {
-//       // 座標データのログ出力
-//       console.log(`座標 ${index}: 緯度 ${coordinate.lat}, 経度 ${coordinate.lng}`);
-
-//       // 長方形を作成
-//       const bounds = getBounds(coordinate, map.getZoom());
-//       console.log(`座標 ${index} の境界:`, bounds);  // 境界のログ出力
-
-//       const rectangle = new google.maps.Rectangle({
-//         strokeColor: getColorByValue(coordinate.value),
-//         strokeOpacity: 0,
-//         strokeWeight: 1,
-//         fillColor: getColorByValue(coordinate.value),
-//         fillOpacity: 0.6,
-//         map,
-//         zIndex: coordinate.value,
-//         bounds: bounds,
-//       });
-
-//       rectangles.push({ rectangle: rectangle, coordinate: coordinate });
-//       attachRectangleClickHandler(rectangle, coordinate);
-//     });
-
-//     google.maps.event.addListener(map, "zoom_changed", function () {
-//       // 6. 地図のズームが変更された場合の処理を追加します。
-//       const currentCenter = map.getCenter();
-//       rectangles.forEach((rect) => {
-//         rect.rectangle.setBounds(getBounds(rect.coordinate, map.getZoom()));
-//         // 7. 各長方形の境界を更新します。
-//       });
-//       map.setCenter(currentCenter);
-//       // 8. 地図の中心を現在の中心に設定します。
-//     });
-//   });
-// }
 
 function fetchCoordinateDataByPosition(coordinate, callback) {
   // 1. グローバル変数から指定された座標に一致するデータを検索します。

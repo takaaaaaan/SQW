@@ -19,6 +19,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
     <!-- deck.glのスクリプト -->
     <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
@@ -69,6 +71,14 @@
       <div class="row">
         <div class="content1">
           <div class="cardbody">
+            <!-- サービス名の画像を追加 -->
+            <img
+              src="assets/img/CLEANFLOW.svg"
+              alt="サービス名"
+              class="sobisu"
+            />
+
+            <!-- 地図 -->
             <div id="map"></div>
           </div>
         </div>
@@ -79,8 +89,53 @@
             <div class="content1">
               <div class="cardbody">
                 <div class="widget">
-                  <div class="widget-header">ウィジェットタイトル1</div>
-                  <div class="widget-content">コンテンツ1</div>
+                  <div class="widget-header">수질 등급 라벨</div>
+                  <div class="widget-content">
+                    <div class="color-info">
+                      <div
+                        class="color-box"
+                        style="background-color: #41a4ff"
+                      ></div>
+                      <!-- 濃い青 -->
+                      <div class="color-description">
+                        수질 등급1 - 매우 좋음
+                      </div>
+                    </div>
+                    <div class="color-info">
+                      <div
+                        class="color-box"
+                        style="background-color: #00bf03"
+                      ></div>
+                      <!-- 濃い緑 -->
+                      <div class="color-description">수질 등급2 - 좋음</div>
+                    </div>
+                    <div class="color-info">
+                      <div
+                        class="color-box"
+                        style="background-color: #ffef00"
+                      ></div>
+                      <!-- 濃い黄色 -->
+                      <div class="color-description">수질 등급3 - 보통</div>
+                    </div>
+                    <div class="color-info">
+                      <div
+                        class="color-box"
+                        style="background-color: #ffa500"
+                      ></div>
+                      <!-- 濃いオレンジ -->
+                      <div class="color-description">수질 등급4 - 나쁨</div>
+                    </div>
+                    <div class="color-info">
+                      <div
+                        class="color-box"
+                        style="background-color: #ff0000"
+                      ></div>
+                      <!-- 濃い赤 -->
+                      <div class="color-description">
+                        수질 등급5 - 매우 나쁨
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,16 +143,60 @@
             <div class="content2">
               <div class="cardbody">
                 <div class="widget">
-                  <div class="widget-header">ウィジェットタイトル2</div>
-                  <div class="widget-content">コンテンツ2</div>
+                  <div class="widget-header">경유 선박</div>
+                  <div class="widget-content2">
+                    <p>시간:, 배 이름:</p>
+                    <p>시간:, 배 이름:</p>
+                    <p>시간:, 배 이름:</p>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- ウィジェット3 -->
+            <div class="content1">
+              <div class="cardbody">
+                <div class="widget">
+                  <div class="widget-header-container">
+                    <div class="widget-header">수질 등급 분포</div>
+                    <div id="totalGradeCount">총건수: 0</div>
+                  </div>
+                  <div class="widget-content">
+                    <canvas id="gradeChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ウィジェット4 -->
             <div class="content2">
               <div class="cardbody">
                 <div class="widget">
-                  <div class="widget-header">ウィジェットタイトル2</div>
-                  <div class="widget-content">コンテンツ2</div>
+                  <div class="widget-header">측정 정보</div>
+                  <div class="widget-content1">
+                    <p>날짜: 0</p>
+                    <p>시각: 0</p>
+                    <p>위도: 0.00</p>
+                    <p>경도: 0.00</p>
+                    <p>산소량: 0.00</p>
+                    <p>엽록소 수치: 0.00</p>
+                    <p>질소 농도: 0.00</p>
+                    <p>인 농도: 0.00</p>
+                    <p>무기질소: 0.00</p>
+                    <p>무기인: 0.00</p>
+                    <p>투명도: 0.00</p>
+                    <p>오염도 수치: 0</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content5">
+              <div class="cardbody">
+                <div class="widget">
+                  <div class="widget-header">측정 현황</div>
+                  <div class="widget-content">
+                    <!-- チャートのコンテナ -->
+                    <canvas id="myChart"></canvas>
+                  </div>
                 </div>
               </div>
             </div>
@@ -116,6 +215,7 @@
     ></script>
   </body>
   <!-- カスタムマップのスクリプトのリンク -->
+  <script src="assets/js/mychart.js"></script>
   <script src="assets/js/map.js">
     document.getElementById("toggleLayer").addEventListener("click", toggleGeoJsonLayer);
   </script>
