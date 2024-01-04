@@ -1,228 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- 文書の文字エンコーディングとブラウザの互換性設定 -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!-- 文書のタイトル -->
     <title>The Blue Ocean</title>
     <!-- ビューポート設定 -->
-    <meta
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
-      name="viewport"
-    />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+        name="viewport" />
     <!-- 地図スタイルシートのリンク -->
-    <link rel="stylesheet" href="assets/css/map.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/map.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- Firebaseライブラリのスクリプトのリンク -->
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
     <!-- deck.glのスクリプト -->
     <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
-    <!-- chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
 
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <div class="navigation">
-        <ul>
-          <!-- 既存のリストアイテム -->
-          <li class="list">
-            <a href="#">
-              <span class="icon"
-                ><ion-icon name="search-outline"></ion-icon
-              ></span>
-              <span class="title">検索</span>
-            </a>
-            <!-- <div id="search-container">
+        <div class="navigation">
+            <ul>
+                <!-- 既存のリストアイテム -->
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+                        <span class="title">検索</span>
+                    </a>
+                    <!-- <div id="search-container">
                         <input type="text" id="search-input" placeholder="ex.황해,동해,남해">
                         <button id="search-button">
                             <img id="search-img" src="assets/img/search_icon.png" alt="검색" />
                         </button>
                     </div> -->
-          </li>
-          <li class="list">
-            <a href="#">
-              <span class="icon"
-                ><img src="assets/img/dashboard_icon.png" alt="アイコン01"
-              /></span>
-              <span class="title">ダッシュボード</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="#">
-              <span class="icon"
-                ><img src="assets/img/fish_icon.png" alt="アイコン02"
-              /></span>
-              <span class="title">魚図</span>
-            </a>
-          </li>
-          <li class="list">
-            <a href="#">
-              <span class="icon"
-                ><img src="assets/img/ais_icon.png" alt="アイコン03"
-              /></span>
-              <span class="title">AIS図</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="row">
-        <div class="content1">
-          <div class="cardbody">
-            <!-- サービス名の画像を追加 -->
-            <img
-              src="assets/img/CLEANFLOW.svg"
-              alt="サービス名"
-              class="sobisu"
-            />
-
-            <!-- 地図 -->
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><img src="assets/img/dashboard_icon.png" alt="アイコン01" /></span>
+                        <span class="title">ダッシュボード</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><img src="assets/img/fish_icon.png" alt="アイコン02" /></span>
+                        <span class="title">魚図</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><img src="assets/img/ais_icon.png" alt="アイコン03" /></span>
+                        <span class="title">AIS図</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="button-container">
+            </div>
             <div id="map"></div>
-          </div>
         </div>
         <div class="content2">
-          <!-- <div class="cardbody"> -->
-          <div class="box">
-            <!-- ウィジェット1 -->
-            <div class="content1">
-              <div class="cardbody">
-                <div class="widget">
-                  <div class="widget-header">수질 등급 라벨</div>
-                  <div class="widget-content">
-                    <div class="color-info">
-                      <div
-                        class="color-box"
-                        style="background-color: #41a4ff"
-                      ></div>
-                      <!-- 濃い青 -->
-                      <div class="color-description">
-                        수질 등급1 - 매우 좋음
-                      </div>
-                    </div>
-                    <div class="color-info">
-                      <div
-                        class="color-box"
-                        style="background-color: #00bf03"
-                      ></div>
-                      <!-- 濃い緑 -->
-                      <div class="color-description">수질 등급2 - 좋음</div>
-                    </div>
-                    <div class="color-info">
-                      <div
-                        class="color-box"
-                        style="background-color: #ffef00"
-                      ></div>
-                      <!-- 濃い黄色 -->
-                      <div class="color-description">수질 등급3 - 보통</div>
-                    </div>
-                    <div class="color-info">
-                      <div
-                        class="color-box"
-                        style="background-color: #ffa500"
-                      ></div>
-                      <!-- 濃いオレンジ -->
-                      <div class="color-description">수질 등급4 - 나쁨</div>
-                    </div>
-                    <div class="color-info">
-                      <div
-                        class="color-box"
-                        style="background-color: #ff0000"
-                      ></div>
-                      <!-- 濃い赤 -->
-                      <div class="color-description">
-                        수질 등급5 - 매우 나쁨
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ウィジェット2 -->
-            <div class="content2">
-              <div class="cardbody">
-                <div class="widget">
-                  <div class="widget-header">경유 선박</div>
-                  <div class="widget-content2">
-                    <p>시간:, 배 이름:</p>
-                    <p>시간:, 배 이름:</p>
-                    <p>시간:, 배 이름:</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ウィジェット3 -->
-            <div class="content1">
-              <div class="cardbody">
-                <div class="widget">
-                  <div class="widget-header-container">
-                    <div class="widget-header">수질 등급 분포</div>
-                    <div id="totalGradeCount">총건수: 0</div>
-                  </div>
-                  <div class="widget-content">
-                    <canvas id="gradeChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ウィジェット4 -->
-            <div class="content2">
-              <div class="cardbody">
-                <div class="widget">
-                  <div class="widget-header">측정 정보</div>
-                  <div class="widget-content1">
-                    <p>날짜: 0</p>
-                    <p>시각: 0</p>
-                    <p>위도: 0.00</p>
-                    <p>경도: 0.00</p>
-                    <p>산소량: 0.00</p>
-                    <p>엽록소 수치: 0.00</p>
-                    <p>질소 농도: 0.00</p>
-                    <p>인 농도: 0.00</p>
-                    <p>무기질소: 0.00</p>
-                    <p>무기인: 0.00</p>
-                    <p>투명도: 0.00</p>
-                    <p>오염도 수치: 0</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="content5">
-              <div class="cardbody">
-                <div class="widget">
-                  <div class="widget-header">측정 현황</div>
-                  <div class="widget-content">
-                    <!-- チャートのコンテナ -->
-                    <canvas id="myChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- </div> -->
+            <div class="box"></div>
         </div>
-      </div>
     </div>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
-  <!-- カスタムマップのスクリプトのリンク -->
-  <script src="assets/js/mychart.js"></script>
-  <script src="assets/js/map.js">
-    document.getElementById("toggleLayer").addEventListener("click", toggleGeoJsonLayer);
-  </script>
-  <script src="assets/js/main.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjKXCt5Qq5LaoyFtovgcA12N8C47tjIRM&callback=initMap"
-    async
-    defer
-  ></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<!-- カスタムマップのスクリプトのリンク -->
+<script src="assets/js/map_test.js">document.getElementById("toggleLayer").addEventListener("click", toggleGeoJsonLayer);
+</script>
+<script src="assets/js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjKXCt5Qq5LaoyFtovgcA12N8C47tjIRM&callback=initMap" async
+    defer></script>
+
 </html>
