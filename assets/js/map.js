@@ -1,44 +1,88 @@
-// BUNCH
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyC6RM-JOezScoTB-vOWhMSXh7sYPpZKyhg",
-//   authDomain: "asia-404305.firebaseapp.com",
-//   databaseURL: "https://asia-404305-default-rtdb.firebaseio.com",
-//   projectId: "asia-404305",
-//   storageBucket: "asia-404305.appspot.com",
-//   messagingSenderId: "838765553299",
-//   appId: "1:838765553299:web:fbf45f8afe5a80d8d8cf66",
-//   measurementId: "G-SK4K6MNGVD"
-// };
-
-// MEGA_BULE
-
 const firebaseConfig = {
-  apiKey: "AIzaSyAx1xUEgJ3-t-NUb5kiXgFTysReX_BVf4c",
-  authDomain: "mega-blue.firebaseapp.com",
-  databaseURL: "https://mega-blue-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "mega-blue",
-  storageBucket: "mega-blue.appspot.com",
-  messagingSenderId: "878936419008",
-  appId: "1:878936419008:web:c8051dd8868ff9c17cdb25",
-  measurementId: "G-YKWS3HBW98"
+  apiKey: "AIzaSyC6RM-JOezScoTB-vOWhMSXh7sYPpZKyhg",
+  authDomain: "asia-404305.firebaseapp.com",
+  databaseURL: "https://asia-404305-default-rtdb.firebaseio.com/",
+  projectId: "asia-404305",
+  storageBucket: "asia-404305.appspot.com",
+  messagingSenderId: "838765553299",
+  appId: "1:838765553299:web:fbf45f8afe5a80d8d8cf66",
+  measurementId: "G-SK4K6MNGVD",
 };
-// Firebaseを初期化します
 firebase.initializeApp(firebaseConfig);
 
+// パイチャート
+function fetchGradeDataAndDisplayChart() {
+  const dbRef = firebase.database().ref();
+  dbRef.once("value", (snapshot) => {
+    const data = snapshot.val();
+    const gradeCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+    // 각 Grade의 개수 집계
+    for (const id in data) {
+      for (const time in data[id]) {
+        const grade = data[id][time].Grade;
+        if (gradeCounts.hasOwnProperty(grade)) {
+          gradeCounts[grade]++;
+        }
+      }
+    }
+
+    // 総数の計算
+    const totalCount = Object.values(gradeCounts).reduce(
+      (acc, count) => acc + count,
+      0
+    );
+
+    // 総数を表示するHTML要素の選択 (ここでは 'totalGradeCount' というIDを持つ要素と仮定)
+    const totalElement = document.getElementById("totalGradeCount");
+    if (totalElement) {
+      totalElement.textContent = `총건수: ${totalCount}`;
+    }
+
+    // 차트 데이터 준비
+    const chartData = {
+      labels: Object.keys(gradeCounts),
+      datasets: [
+        {
+          label: "Grade Counts",
+          data: Object.values(gradeCounts),
+          backgroundColor: ["#41a4ff", "green", "yellow", "orange", "red"],
+        },
+      ],
+    };
+
+    // 원형 차트 생성
+    const ctx = document.getElementById("gradeChart").getContext("2d");
+    new Chart(ctx, {
+      type: "pie",
+      data: chartData,
+    });
+  });
+}
+
+// 함수 호출
+fetchGradeDataAndDisplayChart();
+
+// データ要求
 function fetchAllCoordinates(callback) {
   const coordinates = [];
 
+  console.log("データベースからのデータ取得を開始します。"); // データ取得開始のログ
+
   const dbRef = firebase.database().ref();
   dbRef.on("value", (snapshot) => {
+    console.log("データベースからデータを取得しました。"); // データ取得成功のログ
+
     snapshot.forEach((childSnapshot) => {
-      const id = childSnapshot.key; // ユニークID（"574001590"など）
+      const id = childSnapshot.key;
       let maxTimestamp = null;
       let maxTimestampData = null;
 
       childSnapshot.forEach((timestampSnapshot) => {
-        const timestamp = timestampSnapshot.key; // タイムスタンプ（"2023-12-23 07:11:47"など）
+        const timestamp = timestampSnapshot.key;
         const data = timestampSnapshot.val();
+
+        console.log(`ID: ${id}, Timestamp: ${timestamp}, Data:`, data); // 各データポイントのログ
 
         // 最も新しいタイムスタンプのデータを更新
         if (!maxTimestamp || new Date(timestamp) > new Date(maxTimestamp)) {
@@ -66,58 +110,15 @@ function fetchAllCoordinates(callback) {
     });
 
     if (coordinates.length > 0) {
+      console.log("処理されたデータ: ", coordinates); // 処理されたデータのログ
       callback(coordinates);
+    } else {
+      console.log("データが見つかりませんでした。"); // データがない場合のログ
     }
   });
 }
-// function fetchAllCoordinates(callback) {
-//   const coordinates = [];
 
-//   for (let i = 1; i <= 50; i++) {
-//     const id = "A-" + String(i).padStart(2, "0");
-//     const dbRef = firebase.database().ref(id);
-//     const tableId = id;
-//     let maxMoveKeyCoordinate = null; // 가장 큰 moveKey 좌표를 저장하기 위한 변수
-//     dbRef.on("value", (snapshot) => {
-//       snapshot.forEach((childSnapshot) => {
-//         const moveKey = childSnapshot.key; // move01, move02, ...
-//         const data = childSnapshot.val();
-//         const coordinate = {
-//           tableId,
-//           moveKey,
-//           lat: parseFloat(data.latitude),
-//           lng: parseFloat(data.longitude),
-//           value: data.Grade,
-//           cod: data.COD,
-//           dip: data.DIP,
-//           sd: data.SD,
-//           spm: data.SPM,
-//           si: data.Si_OH4,
-//           tn: data.TN,
-//           tp: data.TP,
-//           ch: data.chlorophyll,
-//           oxg: data.dissolved_oxygen,
-//           ph: data.pH,
-//           sal: data.salinity,
-//           temp: data.temperature,
-//         };
-
-//         if (!isNaN(coordinate.lat) && !isNaN(coordinate.lng)) {
-//           // 가장 큰 moveKey값을 가진 좌표만 저장
-//           if (!maxMoveKeyCoordinate || parseInt(coordinate.moveKey.slice(4)) > parseInt(maxMoveKeyCoordinate.moveKey.slice(4))) {
-//             maxMoveKeyCoordinate = coordinate;
-//           }
-//         }
-//       });
-//       coordinates[i - 1] = maxMoveKeyCoordinate; // 최대 moveKey 좌표만 저장
-//       if (i === 50) {
-//         callback(coordinates);
-//       }
-//     });
-//   }
-// }
-
-
+// zoomLevel計算
 function getBounds(coordinate, zoomLevel) {
   // 1. zoomLevelに基づいてデルタ値を計算します。zoomLevelが高いほどデルタは小さくなります。
   const delta = 5 / Math.pow(2, zoomLevel);
@@ -126,14 +127,11 @@ function getBounds(coordinate, zoomLevel) {
   return {
     north: coordinate.lat + delta, // 北の境界
     south: coordinate.lat - delta, // 南の境界
-    east: coordinate.lng + delta,  // 東の境界
-    west: coordinate.lng - delta,  // 西の境界
+    east: coordinate.lng + delta, // 東の境界
+    west: coordinate.lng - delta, // 西の境界
   };
 }
-// エレメントを表示する関数
-// function showMessage() {
-//   document.getElementById('message').style.display = 'block';
-// }
+
 const rectangles = [];
 let existingRectangles = [];
 
@@ -143,14 +141,7 @@ function clearRectangles() {
   });
   rectangles.length = 0;
 }
-
-function clearRectangles() {
-  rectangles.forEach((rectObj) => {
-    rectObj.rectangle.setMap(null);
-  });
-  rectangles.length = 0;
-}
-
+// map
 function initMap() {
   // 地図を指定されたオプションで初期化
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -319,65 +310,191 @@ function initMap() {
     ],
     disableDefaultUI: true,
   });
-  const placesDictionary = {
-    "황해": { lat: 36.180065, lng: 123.033483, zoom: 7 },
-    "동해": { lat: 39.82878758630755, lng: 134.2263995949388, zoom: 7 },
-    "남해": { lat: 33.826896, lng: 128.127185, zoom: 7 },
-    "울산": { lat: 35.2060749, lng: 130.2670383, zoom: 9 },
-    "제주도": { lat: 33.187485, lng: 125.8084014, zoom: 8 },
-  };
-
-
   // 地図の中心が変更されたときのイベントリスナーを追加
-  map.addListener('center_changed', function () {
+  map.addListener("center_changed", function () {
     currentCenter = map.getCenter(); // 現在の中心を取得
   });
 
-  // 地図のズームが変更されたときのイベントリスナーを追加
-  map.addListener('zoom_changed', function () {
-    currentZoom = map.getZoom(); // 現在のズームレベルを取得
-  });
-
-
-  // 4. 値に基づいて色を取得する関数
+  // 値に基づいて色を取得する関数
   function getColorByValue(value) {
     switch (value) {
       case 1:
-        return "#9fc5e8";
+        return "#41a4ff"; // 濃い青
       case 2:
-        return "#a4d39c";
+        return "#00bf03"; // 濃い緑
       case 3:
-        return "#ffec94";
+        return "#ffef00"; // 濃い黄色
       case 4:
-        return "#ffd29a";
+        return "#ffa500"; // 濃いオレンジ
       case 5:
-        return "#ff9c9c";
+        return "#ff0000"; // 濃い赤
       default:
-        return "#00000000";
+        return "#ffffff"; // デフォルトは白
     }
   }
   // 長方形がクリックされたときの処理を追加
   function attachRectangleClickHandler(rectangle, coordinate) {
-    google.maps.event.addListener(rectangle, 'click', function () {
+    google.maps.event.addListener(rectangle, "click", function () {
       showRectangleInfo(coordinate);
+      track(coordinate); /* TODO */
     });
   }
 
-  // content2とその中のboxに情報を表示する関数
-  function showRectangleInfo(coordinate) {
-    var content2 = document.querySelector('.content2');
-    var box = content2.querySelector('.box');
+  // 追跡計算
+  function calculateDistance(coord1, coord2) {
+    const R = 6371; // 지구 반지름 (km)
+    const lat1 = (coord1[0] * Math.PI) / 180;
+    const lon1 = (coord1[1] * Math.PI) / 180;
+    const lat2 = (coord2[0] * Math.PI) / 180;
+    const lon2 = (coord2[1] * Math.PI) / 180;
 
-    content2.style.display = 'block'; // content2を表示
-    box.innerHTML = ''; // boxの以前の内容をクリア
+    const dlat = lat2 - lat1;
+    const dlon = lon2 - lon1;
 
-    // 情報をboxに追加
-    box.innerHTML += '<p>Latitude: ' + coordinate.lat + '</p>';
-    box.innerHTML += '<p>Longitude: ' + coordinate.lng + '</p>';
-    // 他の情報もここに追加
+    const a =
+      Math.sin(dlat / 2) ** 2 +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dlon / 2) ** 2;
+    const c = 2 * Math.asin(Math.sqrt(a));
+
+    return R * c;
   }
 
-  // 좌표 찍는 함수
+  // 追跡データ表示
+  function showTrackInfo(data) {
+    var box = document.querySelector(".widget-content2");
+    box.innerHTML = ""; // boxの以前の内容をクリア
+    let htmlContent = "";
+    data.forEach((item, index) => {
+      // ISO形式の日付をDateオブジェクトに変換
+      const date = new Date(item.timeStr);
+
+      // 日付を指定された形式に変換
+      const formattedDate = date.toLocaleString("ko-KR", {
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      });
+
+      htmlContent += `<p> ${formattedDate},<br>배 이름: ${item.shipId}</p>`;
+    });
+
+    // box 요소の内容 업デート
+    box.innerHTML = htmlContent;
+  }
+
+  // 追跡
+  function track(dataa) {
+    const dbRef = firebase.database().ref();
+
+    dbRef.once("value", (snapshot) => {
+      const data = snapshot.val();
+      let grade5Ship = null;
+      let grade5Time = null;
+      let grade5Coords = null;
+
+      for (let shipId in data) {
+        for (let timeStr in data[shipId]) {
+          const record = data[shipId][timeStr];
+          if (record["Grade"] === 5) {
+            grade5Ship = shipId;
+            grade5Time = new Date(timeStr);
+            grade5Coords = [record["latitude"], record["longitude"]];
+            break;
+          }
+        }
+        if (grade5Ship) break;
+      }
+
+      // 다른 선박들과의 거리 계산
+      let shipDistances = [];
+      if (grade5Ship) {
+        for (let shipId in data) {
+          if (shipId !== grade5Ship) {
+            for (let timeStr in data[shipId]) {
+              const record = data[shipId][timeStr];
+              const recordTime = new Date(timeStr);
+              if (recordTime < grade5Time) {
+                const coords = [record["latitude"], record["longitude"]];
+                const distance = calculateDistance(grade5Coords, coords);
+                shipDistances.push({ shipId, coords, distance, timeStr });
+              }
+            }
+          }
+        }
+      }
+
+      // 거리에 따라 정렬하고 상위 3개 선박 선택
+      const closestShips = shipDistances
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 3);
+      console.log(closestShips);
+      showTrackInfo(closestShips);
+    });
+  }
+
+  // データ表示
+  function showRectangleInfo(coordinate) {
+    var content2 = document.querySelector(".content2");
+    var box = document.querySelector(".widget-content1");
+
+    content2.style.display = "block"; // content2を表示
+    box.innerHTML = ""; // boxの以前の内容をクリア
+
+    // 指定された座標に関連するデータを検索し、表示します。
+    const dbRef = firebase.database().ref();
+    dbRef.once("value", (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        childSnapshot.forEach((timestampSnapshot) => {
+          const data = timestampSnapshot.val();
+
+          // timestampSnapshot.key 값을 파싱하여 UTC 시간으로 처리
+          var utcTimestamp = new Date(timestampSnapshot.key + "Z");
+
+          // 로컬 시간으로 변환 (toLocaleString 사용)
+          var kstTimestamp = utcTimestamp.toLocaleString("ko-KR", {
+            timeZone: "Asia/Seoul",
+          });
+
+          if (
+            parseFloat(data.latitude) === coordinate.lat &&
+            parseFloat(data.longitude) === coordinate.lng
+          ) {
+            // 情報をboxに追加
+            box.innerHTML += `<p>시각: ${kstTimestamp}</p>`;
+            box.innerHTML += `<p>위도: ${parseFloat(data.latitude).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>경도: ${parseFloat(data.longitude).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>산소량: ${parseFloat(
+              data.dissolved_oxygen
+            ).toFixed(2)}</p>`;
+            box.innerHTML += `<p>엽록소 수치: ${parseFloat(
+              data.chlorophyll
+            ).toFixed(2)}</p>`;
+            box.innerHTML += `<p>질소 농도: ${parseFloat(data.TN).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>인 농도: ${parseFloat(data.TP).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>무기질소: ${parseFloat(data.DIN).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>무기인: ${parseFloat(data.DIP).toFixed(
+              2
+            )}</p>`;
+            box.innerHTML += `<p>투명도: ${parseFloat(data.SD).toFixed(2)}</p>`;
+            box.innerHTML += `<p>오염도 수치: ${data.Grade}</p>`;
+          }
+        });
+      });
+    });
+  }
+
+  // 長方形
   fetchAllCoordinates((coordinates) => {
     clearRectangles();
     // 1. 全ての座標を取得します。
@@ -389,7 +506,7 @@ function initMap() {
         strokeOpacity: 0,
         strokeWeight: 1,
         fillColor: getColorByValue(coordinate.value),
-        fillOpacity: 0.6,
+        fillOpacity: 1,
         map,
         zIndex: coordinate.value,
         bounds: getBounds(coordinate, map.getZoom()),
@@ -397,7 +514,7 @@ function initMap() {
 
       // 3. 長方形と座標を配列に保存します。
       rectangles.push({ rectangle: rectangle, coordinate: coordinate });
-      attachRectangleClickHandler(rectangle, coordinate); // イベントリスナーを追加
+      attachRectangleClickHandler(rectangle, coordinate);
     });
 
     google.maps.event.addListener(map, "zoom_changed", function () {

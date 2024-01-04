@@ -1,3 +1,23 @@
+:root {
+  --main-bg-color: #d4eaf7;
+  --nav-bg-color: #00668c;
+  --nav-hover-bg-color: #20272c5e;
+  --nav-active-bg-color: #71c4ef;
+  --nav-shadow-color: #71c4ef;
+  --nav-border-color: #00668c;
+  --text-color: white;
+
+  /* --primary-100:#d4eaf7;
+  --primary-200:#b6ccd8;
+  --primary-300:#3b3c3d;
+  --accent-100:#71c4ef;
+  --accent-200:#00668c;
+  --text-100:#1d1c1c;
+  --text-200:#313d44;
+  --bg-100:#fffefb;
+  --bg-200:#f5f4f1;
+  --bg-300:#cccbc8; */
+}
 * {
   margin: 0;
   padding: 0;
@@ -5,22 +25,17 @@
 }
 
 body {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   height: 100vh;
-  background-color: #5fb1a3;
+  background-color: var(--main-bg-color);
 }
 
 .navigation {
   position: relative;
-  /* height: 500px; 最初はこれ*/
-  height: 100vh;
-  /* width: 300px; 最初はこれ*/
-  width: 70px;
-  background-color: #4d4c86;
-  box-shadow: 10px 0 0 #c77946;
-  border-left: 10px solid #4d4c86;
+  /* height: 100vh; */
+  width: 80px;
+  background-color: var(--nav-bg-color);
+  box-shadow: 10px 0 0 var(--nav-shadow-color);
+  border-left: 10px solid var(--nav-border-color);
   overflow-x: hidden;
   transition: all 0.5s;
 }
@@ -35,7 +50,7 @@ body {
   left: 0;
   width: 100%;
   padding-top: 20px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .navigation ul li {
@@ -47,11 +62,11 @@ body {
 }
 
 .navigation ul li:hover {
-  background-color: #20272c5e;
+  background-color: var(--nav-hover-bg-color);
 }
 
 .navigation ul li.active {
-  background-color: #c77946;
+  background-color: var(--nav-active-bg-color);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -60,33 +75,29 @@ body {
   display: block;
   position: relative;
   text-decoration: none;
-  color: white;
-  width: 100%;
+  color: var(--text-color);
   display: flex;
 }
 
-/* あとで */
 .navigation ul li.active a::before {
   content: "";
   position: absolute;
   width: 30px;
   height: 30px;
-  /* background-color: red; */
   top: -30px;
   right: 0;
   border-radius: 50%;
-  box-shadow: 15px 15px 0 #c77946;
+  box-shadow: 15px 15px 0 var(--nav-active-bg-color);
 }
 .navigation ul li.active a::after {
   content: "";
   position: absolute;
   width: 30px;
   height: 30px;
-  /* background-color: red; */
   top: 60px;
   right: 0;
   border-radius: 50%;
-  box-shadow: 15px -15px 0 #c77946;
+  box-shadow: 15px -15px 0 var(--nav-active-bg-color);
 }
 
 .navigation ul li a .icon {
@@ -102,7 +113,7 @@ body {
 }
 
 .navigation ul li a .title {
-  padding-left: 10px;
+  padding-left: 17px;
   height: 60px;
   line-height: 60px;
   white-space: nowrap;
