@@ -35,7 +35,7 @@
 프로젝트에 기여하고 싶으신 분은 아래를 참고해 주세요.
 
 ### 팀명 Bunch
-[우에노고홍](https://github.com/takaaaaaan),김수화, 박정윤, 이상용, [최준혁](https://github.com/hahahhe)
+[우에노고홍](https://github.com/takaaaaaan),[이상용](https://github.com/lsy000428), [최준혁](https://github.com/hahahhe),김수화, 박정윤,
 
 
 ## 연락처
